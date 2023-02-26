@@ -7,12 +7,12 @@ import FormattedDate from "../FormattedDate.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <html lang="en">
   <head>
-    <BaseHead title={title} description={""} />
+    <BaseHead title={title} description={description} />
     <style>
       .title {
         font-size: 2em;
