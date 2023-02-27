@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import BaseHead from "../BaseHead.astro";
+import HeadSEO from "./HeadSEO.astro";
 import Header from "../Header.astro";
 import Footer from "../Footer.astro";
 import FormattedDate from "../FormattedDate.astro";
@@ -12,7 +12,7 @@ const { title, description } = Astro.props;
 
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} />
+    <HeadSEO title={title} description={description} />
     <style>
       .title {
         font-size: 2em;

@@ -3,26 +3,29 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "~/consts/meta";
 import { TWITTER_ID } from "~/consts/sns";
 
 interface Props {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   image?: string;
   canonicalURL?: string;
   twitter?: {
     card?: "summary" | "summary_large_image" | "player" | "app";
     site?: string;
   };
+  ogType?: "website" | "article" | "book" | "profile"; // ref: https://ogp.me/
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const {
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
-  image = "", // TODO: set default.
+  image = "/bear.png", // TODO: set default.
   twitter = { card: "summary_large_image", site: TWITTER_ID },
+  ogType = "website",
 } = Astro.props;
 ---
 
-<head>
+<!DOCTYPE html>
+<html lang="ja">
   <!-- Global Metadata -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -38,7 +41,8 @@ const {
   <meta name="description" content={description} />
 
   <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
+  <!-- ref: https://developers.facebook.com/docs/sharing/webmasters/?locale=ja_JP -->
+  <meta property="og:type" content={ogType} />
   <meta property="og:url" content={Astro.url} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
@@ -51,4 +55,6 @@ const {
   <meta property="twitter:description" content={description} />
   <meta property="twitter:site" content={twitter.site} />
   <meta property="twitter:image" content={new URL(image, Astro.url)} />
-</head>
+
+
+</html>
