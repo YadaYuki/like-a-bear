@@ -11,7 +11,7 @@ export const Blog = z.object({
   description: z.string(),
   category: BlogCategory,
   emoji: z.string(), // TODO: Consider Twemoji.
-  tags: z.array(z.string()).min(1).max(10),
+  // tags: z.array(z.string()).min(1).max(10),
   publishedDate: z
     .string()
     .or(z.date())
