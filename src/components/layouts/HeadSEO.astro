@@ -24,8 +24,7 @@ const {
 } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="ja">
+<head>
   <!-- Global Metadata -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -55,6 +54,4 @@ const {
   <meta property="twitter:description" content={description} />
   <meta property="twitter:site" content={twitter.site} />
   <meta property="twitter:image" content={new URL(image, Astro.url)} />
-
-
-</html>
+</head>
