@@ -1,8 +1,7 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
+import HeadSEO from "~/components/layouts/HeadSEO.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "~/consts/meta";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 
@@ -13,26 +12,7 @@ const posts = (await getCollection("blog")).sort(
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <style>
-      ul {
-        list-style-type: none;
-        padding: unset;
-      }
-      ul li {
-        display: flex;
-      }
-      ul li :global(time) {
-        flex: 0 0 130px;
-        font-style: italic;
-        color: #595959;
-      }
-      ul li a:visited {
-        color: #8e32dc;
-      }
-    </style>
-  </head>
+  <HeadSEO />
   <body>
     <Header />
     <main>
