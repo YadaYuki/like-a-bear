@@ -1,9 +1,10 @@
 ---
 import HeadSEO from "~/components/layouts/HeadSEO.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
+import Header from "~/components/layouts/Header.astro";
+import Footer from "~/components/layouts/Footer.astro";
+import FormattedDate from "~/components/layouts/FormattedDate.astro";
+
 import { getCollection } from "astro:content";
-import FormattedDate from "../../components/FormattedDate.astro";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => a.data.publishedDate.valueOf() - b.data.publishedDate.valueOf()
