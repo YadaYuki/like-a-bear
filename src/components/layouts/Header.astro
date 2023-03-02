@@ -1,29 +1,38 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "~/consts/meta";
+import { Image } from "@astrojs/image/components";
+
+interface Props {
+  pageLabel: "Notes" | "Works";
+}
+
+const { pageLabel } = Astro.props;
 ---
 
 <header>
+  <Image alt="ヒグマ" width={80} height={80} src="/bear.png" format={"png"} />
   <h2>
-    {SITE_TITLE}
+    {SITE_TITLE} / {pageLabel}
   </h2>
-  <nav>
-    <HeaderLink href="/">Posts</HeaderLink>
-    <HeaderLink href="/work">Work</HeaderLink>
-    <HeaderLink href="https://www.yyada.jp/" target="_blank">About</HeaderLink>
-    <HeaderLink href="https://twitter.com/yadayuki2" target="_blank">
-      Twitter
-    </HeaderLink>
-    <HeaderLink href="https://github.com/yadayuki" target="_blank">
-      GitHub
-    </HeaderLink>
-  </nav>
 </header>
 <style>
   header {
-    margin: 0em 0 2em;
+    background-color: #fff;
+    height: 56px;
+    display: flex;
+  }
+  img {
+    width: 40px;
+    height: 40px;
+    margin: 8px 0 8px 8px;
+    border-radius: 20px;
   }
   h2 {
-    margin: 0.5em 0;
+    margin: 0 12px;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 20px 0;
   }
 </style>

@@ -3,20 +3,22 @@ import HeadSEO from "./HeadSEO.astro";
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 import "~/styles/global.css";
+import "~/styles/normalize.css";
 
 interface Props {
   title?: string;
   description?: string;
+  pageLabel: "Notes" | "Works";
 }
 
-const { title, description } = Astro.props;
+const { title, description, pageLabel } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <HeadSEO title={title} description={description} />
   <body>
-    <Header />
+    <Header pageLabel={pageLabel} />
     <main>
       <slot />
     </main>
