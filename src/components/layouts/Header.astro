@@ -2,6 +2,7 @@
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "~/consts/meta";
 import { Image } from "@astrojs/image/components";
+import { Menu } from "./menu/Menu";
 
 interface Props {
   pageLabel: "Notes" | "Works";
@@ -13,14 +14,21 @@ const { pageLabel } = Astro.props;
 <header>
   <Image alt="ヒグマ" width={80} height={80} src="/bear.png" format={"png"} />
   <h2>
-    {SITE_TITLE} / {pageLabel}
+    {SITE_TITLE}
+    <span>/</span>
+    {pageLabel}
   </h2>
+  <Menu client:load />
 </header>
 <style>
   header {
     background-color: #fff;
     height: 56px;
     display: flex;
+  }
+  span {
+    font-weight: 300;
+    color: #747474;
   }
   img {
     width: 40px;
