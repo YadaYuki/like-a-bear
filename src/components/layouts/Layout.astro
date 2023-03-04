@@ -1,0 +1,39 @@
+---
+import HeadSEO from "./HeadSEO.astro";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+import "~/styles/global.css";
+import "~/styles/normalize.css";
+import type { PageType } from "~/consts/page";
+
+interface Props {
+  title?: string;
+  description?: string;
+  page: PageType;
+}
+
+const { title, description, page } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <HeadSEO title={title} description={description} />
+  <body>
+    <Header page={page} />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <style>
+      main {
+        margin: 0 8px;
+      }
+      @media screen and (min-width: 768px) {
+        main {
+          width: 768px;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </body>
+</html>
