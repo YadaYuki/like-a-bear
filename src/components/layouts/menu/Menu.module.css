@@ -1,3 +1,4 @@
+/* Menu Button */
 .menu_button {
   height: 40px;
   margin: 8px 0;
@@ -5,10 +6,6 @@
 
 .menu_button > svg {
   margin: 8px 0;
-}
-
-.menu_button:hover > svg {
-  fill: #000;
 }
 
 .menu_button_clicked {

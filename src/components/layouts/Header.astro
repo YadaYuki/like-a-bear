@@ -1,14 +1,14 @@
 ---
-import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "~/consts/meta";
 import { Image } from "@astrojs/image/components";
 import { Menu } from "./menu/Menu";
+import { PageType, PAGES_TO_LABEL_MAP } from "~/consts/page";
 
 interface Props {
-  pageLabel: "Notes" | "Works";
+  page: PageType;
 }
 
-const { pageLabel } = Astro.props;
+const { page } = Astro.props;
 ---
 
 <header>
@@ -16,9 +16,9 @@ const { pageLabel } = Astro.props;
   <h2>
     {SITE_TITLE}
     <span>/</span>
-    {pageLabel}
+    {PAGES_TO_LABEL_MAP[page]}
   </h2>
-  <Menu client:load />
+  <Menu page={page} client:load />
 </header>
 <style>
   header {

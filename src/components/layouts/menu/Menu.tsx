@@ -1,15 +1,21 @@
 import { useState, useCallback } from "react";
 import { ArrowIcon } from "./ArrowIcon";
 import styles from "./Menu.module.css";
+import type { PageType } from "~/consts/page";
+import { MenuList } from "./MenuList";
 
-export const Menu = () => {
+type Props = {
+  page: PageType;
+};
+
+export const Menu = ({ page }: Props) => {
   const [open, setOpen] = useState(false);
   const onClick = useCallback(() => {
     setOpen(!open);
   }, [open]);
 
   return (
-    <>
+    <div>
       <button
         onClick={onClick}
         className={
@@ -20,15 +26,7 @@ export const Menu = () => {
       >
         <ArrowIcon fill={open ? "#000" : "#747474"} />
       </button>
-      <MenuList open={open} />
-    </>
+      <MenuList activeItem={page} open={open} />
+    </div>
   );
-};
-
-type MenuListProps = {
-  open: boolean;
-};
-
-const MenuList = ({ open }: MenuListProps) => {
-  return open ? <div>あああああああ</div> : null;
 };
