@@ -24,3 +24,14 @@
     transform: rotate(180deg);
   }
 }
+@media screen and (min-width: 768px) {
+  .menu_button {
+    height: 48px;
+    margin: 8px 0;
+  }
+  .menu_button > svg {
+    margin: 8px 0;
+    height: 32px;
+    width: 32px;
+  }
+}

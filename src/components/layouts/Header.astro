@@ -12,18 +12,22 @@ const { page } = Astro.props;
 ---
 
 <header>
-  <Image alt="ヒグマ" width={80} height={80} src="/bear.png" format={"png"} />
-  <h2>
-    {SITE_TITLE}
-    <span>/</span>
-    {PAGES_TO_LABEL_MAP[page]}
-  </h2>
-  <Menu page={page} client:load />
+  <div>
+    <Image alt="ヒグマ" width={80} height={80} src="/bear.png" format={"png"} />
+    <h2>
+      {SITE_TITLE}
+      <span>/</span>
+      {PAGES_TO_LABEL_MAP[page]}
+    </h2>
+    <Menu page={page} client:load />
+  </div>
 </header>
 <style>
   header {
     background-color: #fff;
     height: 56px;
+  }
+  div {
     display: flex;
   }
   span {
@@ -42,5 +46,24 @@ const { page } = Astro.props;
     font-size: 16px;
     font-weight: 600;
     padding: 20px 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    header {
+      height: 64px;
+    }
+    div {
+      width: 768px;
+      margin: 0 auto;
+    }
+    h2 {
+      font-size: 20px;
+      padding: 22px 0;
+    }
+    img {
+      width: 48px;
+      height: 48px;
+      border-radius: 24px;
+    }
   }
 </style>
