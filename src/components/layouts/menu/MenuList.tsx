@@ -18,7 +18,6 @@ type MenuListItemType = {
 };
 
 const MENU_LIST_ITEMS: MenuListItemType[] = [
-  // [value,label,url]
   { menuItem: "notes", label: PAGES_TO_LABEL_MAP["notes"], url: "/" },
   { menuItem: "works", label: PAGES_TO_LABEL_MAP["works"], url: "/works" },
   { menuItem: "about", label: "About", url: PORTFOLIO_URL, target: "_blank" },
