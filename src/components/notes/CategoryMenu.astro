@@ -1,0 +1,113 @@
+---
+import type { NoteCategoryType } from "~/schemas/note";
+import { NOTE_CATEGORIES } from "~/consts/categories";
+import menuItemBgImage from "~/components/assets/image/category_menu_bg.png";
+import { capitalize } from "~/utils/string";
+import { Image } from "@astrojs/image/components";
+
+type NoteMenuType = NoteCategoryType | "all";
+
+type Props = {
+  activeCategory?: NoteMenuType;
+};
+
+const CATEGORY_TO_PATH_MAP = {
+  tech: "/notes/tech",
+  life: "/notes/life",
+  other: "/notes/other",
+  all: "/",
+} as const;
+
+const NOTE_MENU_ITEMS = ["all", ...NOTE_CATEGORIES] as const;
+
+const { activeCategory = "all" } = Astro.props;
+---
+
+<ul>
+  {
+    NOTE_MENU_ITEMS.map((category) => {
+      if (category === activeCategory) {
+        return (
+          <li>
+            <Image
+              alt="虹色"
+              width={80}
+              height={80}
+              src={menuItemBgImage}
+              format={"png"}
+            />
+            <div class="list_item">
+              <a href={CATEGORY_TO_PATH_MAP[category]}>
+                {capitalize(category)}
+              </a>
+            </div>
+          </li>
+        );
+      }
+      return (
+        <li class="list_item non_active">
+          <a href={CATEGORY_TO_PATH_MAP[category]}>{capitalize(category)}</a>
+        </li>
+      );
+    })
+  }
+</ul>
+
+<style>
+  ul {
+    display: flex;
+    padding: 0;
+  }
+  li {
+    list-style: none;
+    position: relative;
+  }
+  li > img {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    z-index: -1;
+  }
+  .list_item {
+    background-color: #fff;
+    width: 56px;
+    height: 56px;
+    border-radius: 28px;
+    text-align: center;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 700;
+    margin-right: 16px;
+    line-height: 52px;
+  }
+  a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 28px;
+  }
+  .non_active {
+    color: #747474;
+  }
+  @media screen and (min-width: 768px) {
+    .list_item {
+      width: 64px;
+      height: 64px;
+      border-radius: 32px;
+      margin-right: 16px;
+      line-height: 60px;
+      font-size: 16px;
+    }
+    li > img {
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      width: 68px;
+      height: 68px;
+      border-radius: 34px;
+      z-index: -1;
+    }
+  }
+</style>

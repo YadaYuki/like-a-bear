@@ -26,20 +26,20 @@ const MENU_LIST_ITEMS: MenuListItemType[] = [
 
 export const MenuList = ({ open, activeItem }: MenuListProps) => {
   return open ? (
-    <div className={styles.menu_list}>
+    <ul className={styles.menu_list}>
       {MENU_LIST_ITEMS.map((item) => {
         const isActive = item.menuItem === activeItem;
         const className = isActive
           ? `${styles.menu_list_item} ${styles.menu_list_item_active}`
           : `${styles.menu_list_item} ${styles.menu_list_item_non_active}`;
         return (
-          <p className={className} key={item.menuItem}>
+          <li className={className} key={item.menuItem}>
             <a href={item.url} target={item.target}>
               {item.label}
             </a>
-          </p>
+          </li>
         );
       })}
-    </div>
+    </ul>
   ) : null;
 };
