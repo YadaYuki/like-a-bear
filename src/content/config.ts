@@ -1,8 +1,8 @@
-import { Blog } from "~/schemas/blog";
+import { Note } from "~/schemas/note";
 import { defineCollection } from "astro:content";
 
-const blog = defineCollection({
-  schema: Blog,
+const notes = defineCollection({
+  schema: Note,
 });
 
-export const collections = { blog };
+export const collections = { notes };

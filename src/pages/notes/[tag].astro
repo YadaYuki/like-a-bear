@@ -1,0 +1,22 @@
+---
+import type { NoteCategoryType } from "~/schemas/note";
+import { NOTE_CATEGORIES } from "~/consts/categories";
+import Layout from "~/components/layouts/Layout.astro";
+import CategoryMenu from "~/components/notes/CategoryMenu.astro";
+
+export async function getStaticPaths() {
+  return NOTE_CATEGORIES.map((tag) => {
+    return {
+      params: { tag },
+      props: { page: "notes" },
+    };
+  });
+}
+const { tag } = Astro.params;
+
+const noteCategory = tag as NoteCategoryType;
+---
+
+<Layout page={"notes"}>
+  <CategoryMenu activeCategory={noteCategory} />
+</Layout>
