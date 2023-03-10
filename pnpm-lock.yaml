@@ -8,9 +8,11 @@ specifiers:
   '@astrojs/sitemap': ^1.1.0
   '@types/react': ^18.0.21
   '@types/react-dom': ^18.0.6
+  '@types/twemoji-parser': ^13.1.1
   '@typescript-eslint/eslint-plugin': ^5.53.0
   '@typescript-eslint/parser': ^5.53.0
   astro: ^2.0.15
+  dayjs: ^1.11.7
   eslint: ^8.34.0
   eslint-plugin-astro: ^0.23.0
   eslint-plugin-jsx-a11y: ^6.7.1
@@ -20,6 +22,7 @@ specifiers:
   prettier-plugin-astro: ^0.8.0
   react: ^18.0.0
   react-dom: ^18.0.0
+  twemoji-parser: ^14.0.0
 
 dependencies:
   '@astrojs/image': 0.15.1_astro@2.0.15
@@ -30,10 +33,13 @@ dependencies:
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
   astro: 2.0.15
+  dayjs: 1.11.7
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  twemoji-parser: 14.0.0
 
 devDependencies:
+  '@types/twemoji-parser': 13.1.1
   '@typescript-eslint/eslint-plugin': 5.53.0_ny4s7qc6yg74faf3d6xty2ofzy
   '@typescript-eslint/parser': 5.53.0_7kw3g6rralp5ps6mg3uyzz6azm
   eslint: 8.34.0
@@ -954,6 +960,10 @@ packages:
     resolution: {integrity: sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==}
     dev: true
 
+  /@types/twemoji-parser/13.1.1:
+    resolution: {integrity: sha512-KhGr5xLxf8XCITgMMG8CIHpnZ5EzbVFPmStoEPd6KqtX7Lc7pc7OZyicfcWJgPv68lq/+y52zu+S5A58oOdVJw==}
+    dev: true
+
   /@types/unist/2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
     dev: false
@@ -1559,6 +1569,10 @@ packages:
   /damerau-levenshtein/1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}
     dev: true
+
+  /dayjs/1.11.7:
+    resolution: {integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==}
+    dev: false
 
   /debug/4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
@@ -4472,6 +4486,10 @@ packages:
       tslib: 1.14.1
       typescript: 4.9.5
     dev: true
+
+  /twemoji-parser/14.0.0:
+    resolution: {integrity: sha512-9DUOTGLOWs0pFWnh1p6NF+C3CkQ96PWmEFwhOVmT3WbecRC+68AIqpsnJXygfkFcp4aXbOp8Dwbhh/HQgvoRxA==}
+    dev: false
 
   /type-check/0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}

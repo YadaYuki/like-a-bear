@@ -1,0 +1,62 @@
+---
+import TwitterLogo from "./TwitterLogo.astro";
+import GithubLogo from "./GithubLogo.astro";
+import { TWITTER_URL, GITHUB_URL } from "~/consts/url";
+---
+
+<div class="profile_wrapper">
+  <div class="profile">
+    <img src="/bear.png" alt="ヒグマ" />
+    <div>
+      <p class="name">Yuki Yada / 矢田宙生</p>
+      <div class="link_group">
+        <a href={GITHUB_URL} target="_blank">
+          <GithubLogo width={20} height={20} />
+        </a>
+        <a href={TWITTER_URL} target="_blank">
+          <TwitterLogo width={20} height={17} />
+        </a>
+      </div>
+    </div>
+  </div>
+  <p class="description">Software Engineer who loves web & ML</p>
+</div>
+
+<style>
+  .profile_wrapper {
+    max-width: 400px;
+    background-color: #fff;
+    padding: 0;
+    margin-top: 16px;
+    border-radius: 16px;
+    padding: 16px 16px;
+  }
+  .profile {
+    display: flex;
+  }
+  .profile > div {
+    margin-left: 20px;
+  }
+
+  .link_group > a {
+    margin-right: 4px;
+  }
+
+  .name {
+    font-weight: 700;
+    font-size: 20px;
+    margin: 4px 0;
+  }
+  img {
+    height: 56px;
+    width: 56px;
+    border-radius: 32px;
+    border: 1px solid #e2e2e2;
+  }
+  .description {
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    margin: 16px 0 0 0;
+  }
+</style>

@@ -19,4 +19,9 @@ export const Note = z.object({
     .or(z.date())
     .transform((val) => new Date(val)),
   externalLink: z.string().optional(),
+  noteId: z.string().optional(),
 });
+
+export const Notes = z.array(Note);
+
+export type NoteType = z.infer<typeof Note>;

@@ -1,0 +1,31 @@
+---
+import type { NoteType } from "~/schemas/note";
+import NoteListItem from "~/components/notes/NoteListItem.astro";
+import ProfileItem from "~/components/common/profile/ProfileItem.astro";
+
+type Props = {
+  noteItems: NoteType[];
+};
+const { noteItems } = Astro.props;
+---
+
+<div>
+  <div class="note_list_wrapper">
+    {noteItems.map((noteItem) => <NoteListItem noteItem={noteItem} />)}
+  </div>
+  <ProfileItem />
+</div>
+<style>
+  .note_list_wrapper:after {
+    height: 2px;
+    display: block;
+    content: " ";
+    background: repeating-linear-gradient(
+      to right,
+      #fff 0,
+      #fff 4px,
+      #f2f2f2 4px,
+      #f2f2f2 8px
+    );
+  }
+</style>
