@@ -1,0 +1,21 @@
+---
+type Props = {
+  width: number;
+  height: number;
+  fill?: string;
+};
+
+const { width, height, fill = "#747474" } = Astro.props;
+---
+
+<svg
+  width={width}
+  height={height}
+  viewBox="0 0 36 36"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M4 0C1.81387 0 0 1.81387 0 4V32C0 34.1861 1.81387 36 4 36H32C34.1861 36 36 34.1861 36 32V18H32V32H4V4H18V0H4ZM22 0V4H29.1719L10.5859 22.5859L13.4141 25.4141L32 6.82812V14H36V0H22Z"
+    fill={fill}></path>
+</svg>

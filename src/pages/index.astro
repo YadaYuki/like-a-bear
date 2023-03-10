@@ -1,8 +1,11 @@
 ---
 import Layout from "~/components/layouts/Layout.astro";
 import CategoryMenu from "~/components/notes/CategoryMenu.astro";
+import NoteList from "~/components/notes/NoteList.astro";
+import { NOTES } from "~/consts/notes";
 ---
 
 <Layout page={"notes"}>
   <CategoryMenu />
+  <NoteList noteItems={NOTES} />
 </Layout>
