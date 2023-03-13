@@ -2,7 +2,7 @@
 import type { NoteType, NoteCategoryType } from "~/schemas/note";
 import { capitalize } from "~/utils/string";
 import { renderDate } from "~/utils/date";
-import ExternalLinkIcon from "./ExternalLinkIcon.astro";
+import { Image } from "@astrojs/image/components";
 import { parse } from "twemoji-parser";
 
 type Props = {
@@ -32,7 +32,13 @@ const link =
 <a href={link} target={noteItem.externalLink && "_blank"}>
   <div class="list_item_wrapper">
     <div class="img_area">
-      <img src={emojiEntity.url} alt={emojiEntity.text} />
+      <Image
+        src={emojiEntity.url}
+        width={40}
+        height={40}
+        alt={emojiEntity.text}
+        format={"svg"}
+      />
     </div>
     <div class="note_info_area">
       <div class="title_wrapper"><p>{noteItem.title}</p></div>
@@ -81,7 +87,6 @@ const link =
     border-radius: 8px;
   }
   img {
-    width: 40px;
     margin: 16px;
   }
   .metadata_wrapper {
