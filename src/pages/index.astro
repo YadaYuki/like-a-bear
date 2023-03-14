@@ -4,10 +4,11 @@ import CategoryMenu from "~/components/notes/CategoryMenu.astro";
 import NoteList from "~/components/notes/NoteList.astro";
 import { ExternalNotes } from "~/data/externalNotes";
 import { getCollection } from "astro:content";
+import { sortNoteListByPubDate } from "~/utils/sort";
 
 const collections = await getCollection("notes");
 const internalNotes = collections.map((collection) => collection.data);
-const noteItems = [...internalNotes, ...ExternalNotes];
+const noteItems = sortNoteListByPubDate([...internalNotes, ...ExternalNotes]);
 ---
 
 <Layout page={"notes"}>
