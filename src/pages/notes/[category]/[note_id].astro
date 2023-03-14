@@ -1,0 +1,18 @@
+---
+import Layout from "~/components/layouts/Layout.astro";
+import { NOTES } from "~/consts/notes";
+
+export async function getStaticPaths() {
+  return NOTES.map((note) => {
+    return {
+      params: { category: note.category, note_id: note.noteId },
+      props: { page: "notes" },
+    };
+  });
+}
+const { category, note_id } = Astro.params;
+---
+
+<Layout page={"notes"}>
+  <div>{category}/{note_id}</div>
+</Layout>

@@ -7,17 +7,17 @@ import NoteList from "~/components/notes/NoteList.astro";
 import { NOTES } from "~/consts/notes";
 
 export async function getStaticPaths() {
-  return NOTE_CATEGORIES.map((tag) => {
+  return NOTE_CATEGORIES.map((category) => {
     return {
-      params: { tag },
+      params: { category },
       props: { page: "notes" },
     };
   });
 }
-const { tag } = Astro.params;
+const { category } = Astro.params;
 
-const noteCategory = tag as NoteCategoryType;
-const noteItems = NOTES.filter((item) => item.category === tag);
+const noteCategory = category as NoteCategoryType;
+const noteItems = NOTES.filter((item) => item.category === category);
 ---
 
 <Layout page={"notes"}>

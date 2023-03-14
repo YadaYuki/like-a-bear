@@ -44,7 +44,7 @@ const link =
       <div class="title_wrapper"><p>{noteItem.title}</p></div>
       <div class="metadata_wrapper">
         <p class="category_tag">{capitalize(noteItem.category)}</p>
-        <time>{renderDate(noteItem.publishedDate)}</time>
+        <time>{renderDate(noteItem.pubDate)}</time>
         {
           noteItem.externalLink && (
             <svg
