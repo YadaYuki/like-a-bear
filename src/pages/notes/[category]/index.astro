@@ -1,26 +1,38 @@
 ---
-import type { NoteCategoryType } from "~/schemas/note";
+import type { NoteCategoryType, NoteType } from "~/schemas/note";
 import { NOTE_CATEGORIES } from "~/consts/categories";
 import Layout from "~/components/layouts/Layout.astro";
 import CategoryMenu from "~/components/notes/CategoryMenu.astro";
 import NoteList from "~/components/notes/NoteList.astro";
-import { NOTES } from "~/consts/notes";
+import { ExternalNotes } from "~/data/externalNotes";
+import { getCollection } from "astro:content";
+
+export type Props = {
+  category: NoteCategoryType;
+  noteItems: NoteType[];
+};
 
 export async function getStaticPaths() {
+  const collections = await getCollection("notes");
+  const internalNotes = collections.map((collection) => collection.data);
+  const notes = [...internalNotes, ...ExternalNotes];
+
   return NOTE_CATEGORIES.map((category) => {
     return {
-      params: { category },
-      props: { page: "notes" },
+      params: {
+        category,
+      },
+      props: {
+        category,
+        noteItems: notes.filter((note) => note.category === category),
+      },
     };
   });
 }
-const { category } = Astro.params;
-
-const noteCategory = category as NoteCategoryType;
-const noteItems = NOTES.filter((item) => item.category === category);
+const { category, noteItems } = Astro.props;
 ---
 
 <Layout page={"notes"}>
-  <CategoryMenu activeCategory={noteCategory} />
+  <CategoryMenu activeCategory={category} />
   <NoteList noteItems={noteItems} />
 </Layout>

@@ -2,11 +2,15 @@
 import Layout from "~/components/layouts/Layout.astro";
 import CategoryMenu from "~/components/notes/CategoryMenu.astro";
 import NoteList from "~/components/notes/NoteList.astro";
-import { NOTES } from "~/consts/notes";
-// TODO: 記事内Contentsの取得を動的にできるようにする
+import { ExternalNotes } from "~/data/externalNotes";
+import { getCollection } from "astro:content";
+
+const collections = await getCollection("notes");
+const internalNotes = collections.map((collection) => collection.data);
+const noteItems = [...internalNotes, ...ExternalNotes];
 ---
 
 <Layout page={"notes"}>
   <CategoryMenu />
-  <NoteList noteItems={NOTES} />
+  <NoteList noteItems={noteItems} />
 </Layout>

@@ -1,6 +1,6 @@
 import { Notes, NoteType } from "~/schemas/note";
 
-export const ZennNotes: NoteType[] = [
+const ZennNotes: NoteType[] = [
   {
     title:
       "【脱ランタイムCSS in JS】styled-componentsを別のCSS in JSに自動置換するCLIツールの開発",
@@ -38,26 +38,6 @@ export const ZennNotes: NoteType[] = [
   },
 ];
 
-export const NOTES: NoteType[] = [
-  ...ZennNotes,
-  {
-    title: "2022年を振り返る",
-    description: "",
-    category: "life",
-    emoji: "😆",
-    tags: ["2022", "university", "student"],
-    pubDate: new Date("2022-01-02"),
-    noteId: "look-back-2022",
-  },
-  {
-    title: "「エンジニアの知的生産術」を読んだ",
-    description: "",
-    category: "other",
-    emoji: "🎃",
-    tags: ["engineer", "study", "book"],
-    pubDate: new Date("2020-10-02"),
-    noteId: "engineer-study-book",
-  },
-];
+export const ExternalNotes = [...ZennNotes];
 
-Notes.parse(NOTES);
+Notes.parse(ExternalNotes);
