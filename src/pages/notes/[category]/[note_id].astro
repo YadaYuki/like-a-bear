@@ -1,6 +1,12 @@
 ---
 import Layout from "~/components/layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, CollectionEntry } from "astro:content";
+
+// TODO: Recommend Items
+
+type Props = {
+  note: CollectionEntry<"notes">;
+};
 
 export async function getStaticPaths() {
   const noteEntries = await getCollection("notes");
