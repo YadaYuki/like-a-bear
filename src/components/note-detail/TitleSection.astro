@@ -1,0 +1,54 @@
+---
+import type { NoteType } from "~/schemas/note";
+import { Image } from "@astrojs/image/components";
+import CategoryTag from "~/components/common/CategoryTag.astro";
+import PubDate from "~/components/common/PubDate.astro";
+import { convertEmojiStrToTwiImage } from "~/utils/string";
+import { NOTE_CATEGORY_TO_COLOR_CODE } from "~/consts/color";
+
+type Props = {
+  noteItem: NoteType;
+};
+
+const { noteItem } = Astro.props;
+const emojiEntity = convertEmojiStrToTwiImage(noteItem.emoji);
+const categoryTagBackgroundColor =
+  NOTE_CATEGORY_TO_COLOR_CODE[noteItem.category];
+---
+
+<div class="section_wrapper">
+  <div class="image_wrapper">
+    <Image
+      src={emojiEntity.url}
+      alt={emojiEntity.text}
+      width={80}
+      height={80}
+      format={"svg"}
+      class="emoji"
+    />
+  </div>
+  <h1>{noteItem.title}</h1>
+  <div class="note_subinfo_wrapper">
+    <CategoryTag category={noteItem.category} />
+    <PubDate pubDate={noteItem.pubDate} />
+  </div>
+</div>
+<style>
+  .emoji {
+    margin: 24px auto 16px;
+  }
+  .section_wrapper {
+    padding: 0px 16px;
+  }
+  .image_wrapper {
+    text-align: center;
+  }
+  h1 {
+    margin: 0 0 8px !important;
+    font-size: 28px !important;
+  }
+  .note_subinfo_wrapper {
+    display: flex;
+    margin-top: 2px;
+  }
+</style>

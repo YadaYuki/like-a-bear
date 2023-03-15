@@ -1,5 +1,6 @@
 ---
 import Layout from "~/components/layouts/Layout.astro";
+import TitleSection from "~/components/note-detail/TitleSection.astro";
 import { getCollection, CollectionEntry } from "astro:content";
 
 // TODO: Recommend Items
@@ -17,12 +18,31 @@ export async function getStaticPaths() {
     };
   });
 }
-const { category, note_id } = Astro.params;
 const { note } = Astro.props;
 const { Content } = await note.render();
 ---
 
 <Layout page={"notes"}>
-  <div>{category}/{note_id}</div>
-  <Content />
+  <TitleSection noteItem={note.data} />
+  <div class="content_wrapper">
+    <Content />
+  </div>
 </Layout>
+
+<style is:global>
+  main {
+    margin: 0;
+  }
+  .content_wrapper {
+    background-color: #fff;
+    margin: 20px 0;
+    padding: 8px 16px;
+    font-family: "Noto Sans JP", sans-serif;
+  }
+  h1 {
+    margin: 0;
+  }
+  p {
+    line-height: 1.8em;
+  }
+</style>

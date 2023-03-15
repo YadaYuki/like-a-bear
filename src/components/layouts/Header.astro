@@ -13,7 +13,15 @@ const { page } = Astro.props;
 
 <header>
   <div>
-    <Image alt="ヒグマ" width={80} height={80} src="/bear.png" format={"png"} />
+    <a href="/">
+      <Image
+        alt="ヒグマ"
+        width={80}
+        height={80}
+        src="/bear.png"
+        format={"png"}
+      />
+    </a>
     <h2>
       {SITE_TITLE}
       <span>/</span>
@@ -30,6 +38,7 @@ const { page } = Astro.props;
     top: 0;
     left: 0;
     z-index: 50;
+    border-bottom: 1px solid #f2f2f2;
   }
   div {
     display: flex;
@@ -38,6 +47,7 @@ const { page } = Astro.props;
     font-weight: 300;
     color: #747474;
   }
+
   img {
     width: 40px;
     height: 40px;
