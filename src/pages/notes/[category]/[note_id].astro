@@ -24,25 +24,53 @@ const { Content } = await note.render();
 
 <Layout page={"notes"}>
   <TitleSection noteItem={note.data} />
-  <div class="content_wrapper">
+  <div class="note_content_wrapper">
     <Content />
   </div>
 </Layout>
 
 <style is:global>
-  main {
-    margin: 0 !important;
+  @media screen and (max-width: 768px) {
+    main {
+      margin: 0 !important;
+    }
   }
-  .content_wrapper {
+  @media screen and (min-width: 768px) {
+    .note_content_wrapper {
+      border-radius: 4px;
+    }
+  }
+
+  .note_content_wrapper {
     background-color: #fff;
     margin: 20px 0;
     padding: 8px 16px;
     font-family: "Noto Sans JP", sans-serif;
   }
-  h1 {
+  .note_content_wrapper h1 {
     margin: 0;
   }
-  p {
+  .note_content_wrapper h1::after,
+  .note_content_wrapper h2::after {
+    height: 1px;
+    display: block;
+    content: " ";
+    background: #f2f2f2;
+    margin-top: 8px;
+  }
+  .note_content_wrapper p {
     line-height: 1.8em;
+  }
+
+  .note_content_wrapper li {
+    line-height: 1.8em;
+  }
+
+  .note_content_wrapper img {
+    width: 100%;
+  }
+  .note_content_wrapper pre.astro-code {
+    padding: 1rem;
+    border-radius: 0.375rem;
   }
 </style>
