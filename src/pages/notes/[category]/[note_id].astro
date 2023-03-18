@@ -1,9 +1,11 @@
 ---
 import Layout from "~/components/layouts/Layout.astro";
 import TitleSection from "~/components/note-detail/TitleSection.astro";
+import RelatedNoteList from "~/components/note-detail/RelatedNoteList.astro";
 import TwitterShareButton from "~/components/note-detail/TwitterShareButton.astro";
 import { constructTwitterShareURL } from "~/utils/string";
 import { getCollection, CollectionEntry } from "astro:content";
+import { ExternalNotes } from "~/data/externalNotes";
 
 // TODO: Recommend Items
 
@@ -22,7 +24,9 @@ export async function getStaticPaths() {
 }
 const { note } = Astro.props;
 const { Content } = await note.render();
+
 const url = Astro.url.toString();
+const relatedNoteItems = ExternalNotes.slice(0, 4);
 ---
 
 <Layout page={"notes"}>
@@ -31,8 +35,8 @@ const url = Astro.url.toString();
   <div class="note_content_wrapper">
     <Content />
   </div>
+  <RelatedNoteList relatedNoteList={relatedNoteItems} />
 </Layout>
-
 <style is:global>
   @media screen and (max-width: 768px) {
     main {
