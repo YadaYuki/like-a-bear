@@ -1,6 +1,7 @@
 ---
 import Layout from "~/components/layouts/Layout.astro";
 import TitleSection from "~/components/note-detail/TitleSection.astro";
+import TwitterShareButton from "~/components/note-detail/TwitterShareButton.astro";
 import { getCollection, CollectionEntry } from "astro:content";
 
 // TODO: Recommend Items
@@ -24,6 +25,7 @@ const { Content } = await note.render();
 
 <Layout page={"notes"}>
   <TitleSection noteItem={note.data} />
+  <TwitterShareButton />
   <div class="note_content_wrapper">
     <Content />
   </div>
