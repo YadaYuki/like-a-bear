@@ -4,25 +4,27 @@ import { capitalize, convertEmojiStrToTwiImage } from "~/utils/string";
 import { renderDate } from "~/utils/date";
 import { NOTE_CATEGORY_TO_COLOR_CODE } from "~/consts/color";
 import { Image } from "@astrojs/image/components";
+import CategoryTag from "~/components/common/CategoryTag.astro";
+import PubDate from "~/components/common/PubDate.astro";
 
 type Props = {
-  noteItem: NoteType;
+  relatedNote: NoteType;
 };
-const { noteItem } = Astro.props;
+const { relatedNote } = Astro.props;
 
-const emojiEntity = convertEmojiStrToTwiImage(noteItem.emoji);
+const emojiEntity = convertEmojiStrToTwiImage(relatedNote.emoji);
 
 const categoryTagBackgroundColor =
-  NOTE_CATEGORY_TO_COLOR_CODE[noteItem.category];
+  NOTE_CATEGORY_TO_COLOR_CODE[relatedNote.category];
 
 const link =
-  noteItem.externalLink === undefined
-    ? `/notes/${noteItem.category}/${noteItem.noteId}`
-    : noteItem.externalLink;
+  relatedNote.externalLink === undefined
+    ? `/notes/${relatedNote.category}/${relatedNote.noteId}`
+    : relatedNote.externalLink;
 ---
 
-<a href={link} target={noteItem.externalLink && "_blank"}>
-  <div class="list_item_wrapper">
+<a href={link} target={relatedNote.externalLink && "_blank"}>
+  <div class="related_note_item">
     <div class="img_area">
       <Image
         src={emojiEntity.url}
@@ -33,12 +35,12 @@ const link =
       />
     </div>
     <div class="note_info_area">
-      <div class="title_wrapper"><p>{noteItem.title}</p></div>
+      <div class="title_wrapper"><p>{relatedNote.title}</p></div>
       <div class="metadata_wrapper">
-        <p class="category_tag">{capitalize(noteItem.category)}</p>
-        <time>{renderDate(noteItem.pubDate)}</time>
+        <CategoryTag category={relatedNote.category} />
+        <PubDate pubDate={relatedNote.pubDate} />
         {
-          noteItem.externalLink && (
+          relatedNote.externalLink && (
             <svg
               viewBox="0 0 36 36"
               fill="none"
@@ -52,14 +54,19 @@ const link =
     </div>
   </div>
 </a>
-
-<style define:vars={{ categoryTagBackgroundColor }}>
-  .list_item_wrapper {
-    display: flex;
+<style>
+  .related_note_item {
+    height: 88px;
+    background: #fff;
     margin-bottom: 16px;
+    border-radius: 8px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+    max-width: 376px;
+    width: 100%;
+    display: flex;
   }
   .note_info_area {
-    padding: 8px;
+    padding: 16px 16px 8px 8px;
   }
   .title_wrapper {
     height: 40px;
@@ -75,40 +82,26 @@ const link =
   .img_area {
     width: 72px;
     height: 72px;
-    background-color: #fff;
+    background-color: #f2f2f2;
     border-radius: 8px;
+    margin: 8px;
   }
-  img {
+  .img_area img {
     margin: 16px;
   }
   .metadata_wrapper {
     display: flex;
-    margin-top: 2px;
-  }
-  .category_tag {
-    margin: 0;
-    padding: 4px;
-    font-size: 8px;
-    font-weight: 700;
-    background-color: var(--categoryTagBackgroundColor);
-    color: #fff;
-    border-radius: 4px;
-    font-family: "Noto Sans JP", sans-serif;
-    width: 40px;
-    text-align: center;
-    height: 16px;
-    line-height: 8px;
-  }
-  .metadata_wrapper time {
-    font-size: 8px;
-    font-family: "Noto Sans JP", sans-serif;
-    margin: 2px 8px;
-    color: #747474;
+    margin-top: 4px;
   }
   .metadata_wrapper svg {
     width: 10px;
     height: 10px;
     fill: #4f8afd;
     margin: 3px 0;
+  }
+  @media screen and (min-width: 768px) {
+    .related_note_item {
+      margin-right: 16px;
+    }
   }
 </style>

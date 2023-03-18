@@ -1,12 +1,13 @@
 ---
-import TwitterLogo from "./TwitterLogo.astro";
-import GithubLogo from "./GithubLogo.astro";
+import TwitterLogo from "~/components/common/logo/TwitterLogo.astro";
+import GithubLogo from "~/components/common/logo/GithubLogo.astro";
+import { Image } from "@astrojs/image/components";
 import { TWITTER_URL, GITHUB_URL } from "~/consts/url";
 ---
 
 <div class="profile_wrapper">
   <div class="profile">
-    <img src="/bear.png" alt="ヒグマ" />
+    <Image width={80} height={80} src="/bear.png" alt="ヒグマ" format={"png"} />
     <div>
       <p class="name">Yuki Yada / 矢田宙生</p>
       <div class="link_group">

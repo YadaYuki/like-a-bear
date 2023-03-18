@@ -1,0 +1,19 @@
+---
+import { renderDate } from "~/utils/date";
+
+type Props = {
+  pubDate: Date;
+};
+const { pubDate } = Astro.props;
+---
+
+<time>{renderDate(pubDate)}</time>
+
+<style>
+  time {
+    font-size: 8px;
+    font-family: "Noto Sans JP", sans-serif;
+    margin: 2px 8px;
+    color: #747474;
+  }
+</style>

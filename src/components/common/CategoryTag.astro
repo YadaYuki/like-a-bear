@@ -1,0 +1,30 @@
+---
+import type { NoteCategoryType } from "~/schemas/note";
+import { NOTE_CATEGORY_TO_COLOR_CODE } from "~/consts/color";
+import { capitalize } from "~/utils/string";
+
+type Props = {
+  category: NoteCategoryType;
+};
+const { category } = Astro.props;
+const categoryTagBackgroundColor = NOTE_CATEGORY_TO_COLOR_CODE[category];
+---
+
+<p>{capitalize(category)}</p>
+
+<style define:vars={{ categoryTagBackgroundColor }}>
+  p {
+    margin: 0 !important;
+    padding: 4px !important;
+    font-size: 8px !important;
+    font-weight: 700 !important;
+    background-color: var(--categoryTagBackgroundColor) !important;
+    color: #fff !important;
+    border-radius: 4px !important;
+    font-family: "Noto Sans JP", sans-serif !important;
+    width: 40px !important;
+    text-align: center !important;
+    height: 16px !important;
+    line-height: 8px !important;
+  }
+</style>

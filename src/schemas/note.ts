@@ -14,7 +14,7 @@ export const Note = z.object({
   category: NoteCategory,
   emoji: z.string(),
   tags: z.array(z.string()).min(1).max(10),
-  publishedDate: z
+  pubDate: z
     .string()
     .or(z.date())
     .transform((val) => new Date(val)),
