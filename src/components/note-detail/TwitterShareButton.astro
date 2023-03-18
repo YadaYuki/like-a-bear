@@ -1,8 +1,12 @@
 ---
-import TwitterLogo from "~/components/common/logo/TwitterLogo.astro";
+type Props = {
+  shareUrl: string;
+};
+
+const { shareUrl } = Astro.props;
 ---
 
-<a>
+<a href={shareUrl} target="_blank">
   <svg
     width={24}
     height={24}

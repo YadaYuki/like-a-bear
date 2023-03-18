@@ -2,6 +2,7 @@
 import Layout from "~/components/layouts/Layout.astro";
 import TitleSection from "~/components/note-detail/TitleSection.astro";
 import TwitterShareButton from "~/components/note-detail/TwitterShareButton.astro";
+import { constructTwitterShareURL } from "~/utils/string";
 import { getCollection, CollectionEntry } from "astro:content";
 
 // TODO: Recommend Items
@@ -21,11 +22,12 @@ export async function getStaticPaths() {
 }
 const { note } = Astro.props;
 const { Content } = await note.render();
+const url = Astro.url.toString();
 ---
 
 <Layout page={"notes"}>
   <TitleSection noteItem={note.data} />
-  <TwitterShareButton />
+  <TwitterShareButton shareUrl={constructTwitterShareURL(url)} />
   <div class="note_content_wrapper">
     <Content />
   </div>

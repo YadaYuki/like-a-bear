@@ -13,3 +13,7 @@ export const convertEmojiStrToTwiImage = (s: string): EmojiEntity => {
   const emojiEntity = entities[0];
   return emojiEntity;
 };
+
+export const constructTwitterShareURL = (url: string) => {
+  return `http://www.twitter.com/share?url=${url}`;
+};
