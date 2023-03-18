@@ -20,7 +20,7 @@ const { relatedNoteList } = Astro.props;
 </div>
 <style>
   .related_note_list_content_wrapper {
-    margin: 8px 8px 8px 0px;
+    margin: 8px;
   }
   .related_note_list {
     margin-top: 16px;
@@ -45,6 +45,9 @@ const { relatedNoteList } = Astro.props;
     .related_note_list {
       margin: 0;
       width: calc(768px + 16px);
+    }
+    .related_note_list_content_wrapper {
+      margin-left: 0;
     }
   }
 </style>
