@@ -49,7 +49,17 @@ export class TfIdfDocumentVectorizer implements DocumentVectorizerBase {
       }
     }
 
-    return tfIdfVectors.map((vector) => this.normalizeL2(vector));
+    const normalizedTfIdfVectors = tfIdfVectors.map((vector) =>
+      this.normalizeL2(vector)
+    );
+    this.documentIdToVector = {};
+
+    for (let i = 0; i < N; i++) {
+      this.documentIdToVector[documents[i].documentId] =
+        normalizedTfIdfVectors[i];
+    }
+
+    return normalizedTfIdfVectors;
   }
 
   vectorize(documentId: string): number[] {
