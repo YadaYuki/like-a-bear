@@ -105,7 +105,6 @@ describe("TfIdfDocumentVectorizer", () => {
       0.0, 0.6876235979836938, 0.0, 0.281088674033753, 0.0, 0.5386476208856763,
       0.281088674033753, 0.0, 0.281088674033753,
     ];
-
     vector.forEach((v, i) => {
       expect(v).toBeCloseTo(expected[i], 5);
     });
