@@ -40,7 +40,6 @@ export class TfIdfDocumentVectorizer implements DocumentVectorizerBase {
         tfIdfVectors[i][vocabIdx] += 1;
       }
     }
-    // console.log(tf);
     // tf-idf
     for (let i = 0; i < N; i++) {
       for (let j = 0; j < vocab.length; j++) {
