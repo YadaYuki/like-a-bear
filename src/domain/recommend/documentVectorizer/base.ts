@@ -1,6 +1,6 @@
 import type { TokenizedDocument } from "~/domain/recommend/type";
 
 export interface DocumentVectorizerBase {
-  fit(docments: TokenizedDocument[]): void;
+  fitTransform(docments: TokenizedDocument[]): number[][];
   vectorize(documentId: string): number[];
 }

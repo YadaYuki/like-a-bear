@@ -12,3 +12,18 @@ export const sortNoteListByPubDate = (
   };
   return [...notes].sort(sortFn);
 };
+
+export const sorted = <T>(array: T[]): T[] => {
+  return [...array].sort();
+};
+
+export const uniq = <T>(array: T[]): T[] => {
+  return [...new Set(array)];
+};
+
+export const sum = (array: number[]): number => {
+  return array.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
+};
