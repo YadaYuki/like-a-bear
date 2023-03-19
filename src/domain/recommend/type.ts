@@ -4,6 +4,6 @@ export type TokenizedDocument = {
 };
 
 export type RecommendItem = {
-  documentId: string[];
+  documentId: string;
   recommendedDocuments: string[];
 };
