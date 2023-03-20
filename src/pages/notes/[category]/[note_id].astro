@@ -17,7 +17,7 @@ import type { NoteType } from "~/schemas/note";
 
 type Props = {
   note: CollectionEntry<"notes">;
-  relatedNoteItems: NoteType;
+  relatedNoteItems: NoteType[];
 };
 
 export async function getStaticPaths() {

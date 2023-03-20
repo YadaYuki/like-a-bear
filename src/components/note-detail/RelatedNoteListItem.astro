@@ -50,17 +50,15 @@ const link =
   </div>
 </a>
 <style>
+  a {
+    margin-bottom: 16px;
+  }
   .related_note_item {
     height: 88px;
     background: #fff;
-    margin-bottom: 16px;
     border-radius: 8px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
     display: flex;
-  }
-
-  a {
-    width: 100%;
   }
   .note_info_area {
     padding: 16px 16px 8px 8px;
@@ -100,6 +98,11 @@ const link =
     .related_note_item {
       margin-right: 16px;
       width: 376px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    a {
+      width: 100%;
     }
   }
 </style>
