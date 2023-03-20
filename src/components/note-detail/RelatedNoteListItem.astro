@@ -1,8 +1,6 @@
 ---
 import type { NoteType } from "~/schemas/note";
-import { capitalize, convertEmojiStrToTwiImage } from "~/utils/string";
-import { renderDate } from "~/utils/date";
-import { NOTE_CATEGORY_TO_COLOR_CODE } from "~/consts/color";
+import { convertEmojiStrToTwiImage } from "~/utils/string";
 import { Image } from "@astrojs/image/components";
 import CategoryTag from "~/components/common/CategoryTag.astro";
 import PubDate from "~/components/common/PubDate.astro";
@@ -13,9 +11,6 @@ type Props = {
 const { relatedNote } = Astro.props;
 
 const emojiEntity = convertEmojiStrToTwiImage(relatedNote.emoji);
-
-const categoryTagBackgroundColor =
-  NOTE_CATEGORY_TO_COLOR_CODE[relatedNote.category];
 
 const link =
   relatedNote.externalLink === undefined
@@ -61,9 +56,11 @@ const link =
     margin-bottom: 16px;
     border-radius: 8px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-    max-width: 376px;
-    width: 100%;
     display: flex;
+  }
+
+  a {
+    width: 100%;
   }
   .note_info_area {
     padding: 16px 16px 8px 8px;
@@ -102,6 +99,7 @@ const link =
   @media screen and (min-width: 768px) {
     .related_note_item {
       margin-right: 16px;
+      width: 376px;
     }
   }
 </style>
