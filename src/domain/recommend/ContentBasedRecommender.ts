@@ -19,6 +19,46 @@ export class ContentBasedRecommender {
     tokenizedDocuments: TokenizedDocument[],
     recommendItemsCnt = 4
   ): void {
+    if (recommendItemsCnt > tokenizedDocuments.length - 1) {
+      throw Error(
+        "The recommendItemsCnt should be less than documents count - 1"
+      );
+    }
+    this.vectorizer.fitTransform(tokenizedDocuments);
+
+    this.documentIdToRecommendItemMap = {};
+
+    for (const tokenizedDocument of tokenizedDocuments) {
+      const candidateIdAndSimilarity: {
+        documentId: string;
+        similarity: number;
+      }[] = [];
+      for (const recommendCandidate of tokenizedDocuments) {
+        if (recommendCandidate.documentId === tokenizedDocument.documentId) {
+          continue;
+        }
+        const similarity = this.calculater.similarity(
+          this.vectorizer.vectorize(tokenizedDocument.documentId),
+          this.vectorizer.vectorize(recommendCandidate.documentId)
+        );
+        candidateIdAndSimilarity.push({
+          documentId: recommendCandidate.documentId,
+          similarity,
+        });
+      }
+
+      // sort documents by similarity. desc
+      candidateIdAndSimilarity.sort((a, b) => b.similarity - a.similarity);
+
+      // recommed recommendItemsCnt
+      this.documentIdToRecommendItemMap[tokenizedDocument.documentId] = {
+        documentId: tokenizedDocument.documentId,
+        recommendedDocuments: candidateIdAndSimilarity
+          .slice(0, recommendItemsCnt)
+          .map((item) => item.documentId),
+      };
+    }
+
     return;
   }
 

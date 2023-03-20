@@ -4,29 +4,66 @@ import TitleSection from "~/components/note-detail/TitleSection.astro";
 import RelatedNoteList from "~/components/note-detail/RelatedNoteList.astro";
 import TwitterShareButton from "~/components/note-detail/TwitterShareButton.astro";
 import { constructTwitterShareURL } from "~/utils/string";
+import { sortNoteListByPubDate } from "~/utils/collection";
 import { getCollection, CollectionEntry } from "astro:content";
 import { ExternalNotes } from "~/data/externalNotes";
+import { ContentBasedRecommender } from "~/domain/recommend/ContentBasedRecommender";
+import { TfIdfDocumentVectorizer } from "~/domain/recommend/documentVectorizer/TfIdfDocumentVectorizer";
+import type { TokenizedDocument } from "~/domain/recommend/type";
+import { CosineSimilarityCalculator } from "~/domain/recommend/similarityCalculator/CosineSimilarityCalculator";
+import type { NoteType } from "~/schemas/note";
 
 // TODO: Recommend Items
 
 type Props = {
   note: CollectionEntry<"notes">;
+  relatedNoteItems: NoteType;
 };
 
 export async function getStaticPaths() {
-  const noteEntries = await getCollection("notes");
-  return noteEntries.map((note) => {
+  const collections = await getCollection("notes");
+  const internalNotes = collections.map((collection) => collection.data);
+  const noteItems = sortNoteListByPubDate([...internalNotes, ...ExternalNotes]);
+
+  const recommender = new ContentBasedRecommender(
+    new TfIdfDocumentVectorizer(),
+    new CosineSimilarityCalculator()
+  );
+
+  // noteに付与されたタグを用いる。
+  const tokenizedDocuments: TokenizedDocument[] = noteItems.map((item) => {
+    const documentId = (
+      item.externalLink !== undefined ? item.externalLink : item.noteId
+    ) as string;
+    const tokenizedContent = item.tags;
+    return { documentId, tokenizedContent };
+  });
+  recommender.fit(tokenizedDocuments, 4);
+
+  return collections.map((note) => {
+    const item = note.data;
+    const documentId = (
+      item.externalLink !== undefined ? item.externalLink : item.noteId
+    ) as string;
+    const recommendedDocumentIds =
+      recommender.getRecommendItemById(documentId).recommendedDocuments;
+
+    const relatedNoteItems = recommendedDocumentIds.map((id) => {
+      return noteItems.find(
+        (item) => item.externalLink === id || item.noteId === id
+      );
+    });
+
     return {
       params: { note_id: note.slug, category: note.data.category },
-      props: { note },
+      props: { note, relatedNoteItems },
     };
   });
 }
-const { note } = Astro.props;
+const { note, relatedNoteItems } = Astro.props;
 const { Content } = await note.render();
 
 const url = Astro.url.toString();
-const relatedNoteItems = ExternalNotes.slice(0, 4);
 ---
 
 <Layout page={"notes"}>

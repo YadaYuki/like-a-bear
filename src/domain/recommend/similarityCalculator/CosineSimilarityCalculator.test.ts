@@ -1,4 +1,4 @@
-import { expect, describe, it, test } from "vitest";
+import { expect, describe, it } from "vitest";
 import { CosineSimilarityCalculator } from "./CosineSimilarityCalculator";
 
 // The two tests marked with concurrent will be run in parallel
