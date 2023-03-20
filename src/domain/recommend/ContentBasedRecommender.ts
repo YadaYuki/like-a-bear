@@ -24,9 +24,7 @@ export class ContentBasedRecommender {
 
   public getRecommendItemById(documentId: string): RecommendItem {
     if (this.documentIdToRecommendItemMap === undefined) {
-      throw Error(
-        "ContentBasedRecommender's .fit method has not been executed yet."
-      );
+      throw Error("The Content-based recommender is not fitted");
     }
     return this.documentIdToRecommendItemMap[documentId];
   }

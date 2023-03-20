@@ -1,5 +1,9 @@
 import { Notes, NoteType } from "~/schemas/note";
 
+const CompanyTechBlog: NoteType[] = [];
+
+const AiScholarNote: NoteType[] = [];
+
 const ZennNotes: NoteType[] = [
   {
     title:
@@ -38,6 +42,10 @@ const ZennNotes: NoteType[] = [
   },
 ];
 
-export const ExternalNotes = [...ZennNotes];
+export const ExternalNotes = [
+  ...ZennNotes,
+  ...CompanyTechBlog,
+  ...AiScholarNote,
+];
 
 Notes.parse(ExternalNotes);
