@@ -18,8 +18,8 @@ const link =
     : relatedNote.externalLink;
 ---
 
-<a href={link} target={relatedNote.externalLink && "_blank"}>
-  <div class="related_note_item">
+<div class="related_note_item">
+  <a href={link} target={relatedNote.externalLink && "_blank"}>
     <div class="img_area">
       <Image
         src={emojiEntity.url}
@@ -47,18 +47,19 @@ const link =
         }
       </div>
     </div>
-  </div>
-</a>
+  </a>
+</div>
 <style>
   a {
-    margin-bottom: 16px;
+    display: flex;
   }
   .related_note_item {
     height: 88px;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-    display: flex;
+    margin-bottom: 16px;
+    width: 100%;
   }
   .note_info_area {
     padding: 16px 16px 8px 8px;
@@ -98,11 +99,6 @@ const link =
     .related_note_item {
       margin-right: 16px;
       width: 376px;
-    }
-  }
-  @media screen and (max-width: 768px) {
-    a {
-      width: 100%;
     }
   }
 </style>
