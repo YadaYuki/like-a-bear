@@ -23,7 +23,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "satori": "^0.4.4",
-    "sharp": "^0.32.0",
+    "sharp": "0.31.3",
     "twemoji-parser": "^14.0.0"
   },
   "devDependencies": {

@@ -24,13 +24,13 @@ specifiers:
   react: ^18.0.0
   react-dom: ^18.0.0
   satori: ^0.4.4
-  sharp: ^0.32.0
+  sharp: 0.31.3
   twemoji-parser: ^14.0.0
   vite-tsconfig-paths: ^4.0.7
   vitest: ^0.29.3
 
 dependencies:
-  '@astrojs/image': 0.15.1_astro@2.0.15+sharp@0.32.0
+  '@astrojs/image': 0.15.1_astro@2.0.15+sharp@0.31.3
   '@astrojs/mdx': 0.17.2_astro@2.0.15+rollup@3.17.2
   '@astrojs/react': 2.0.2_3xleytyzprlgycb2ded54tx72i
   '@astrojs/rss': 2.1.1
@@ -42,7 +42,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   satori: 0.4.4
-  sharp: 0.32.0
+  sharp: 0.31.3
   twemoji-parser: 14.0.0
 
 devDependencies:
@@ -81,7 +81,7 @@ packages:
   /@astrojs/compiler/1.1.2:
     resolution: {integrity: sha512-L3/JrdNwBFKcoDeStmRgJWvI2t/5nNJm7HnGjDy4e8BH3qKv8iQYdpvuQjeYRA00k6I1lxZGBm/0wU+Lg7HPiQ==}
 
-  /@astrojs/image/0.15.1_astro@2.0.15+sharp@0.32.0:
+  /@astrojs/image/0.15.1_astro@2.0.15+sharp@0.31.3:
     resolution: {integrity: sha512-5+ZBHEfwcx8BbJbAatnW1fyFLWQW4n6jUkDRB5eLbo+yKZv8gwlpPBPpo7cqiY6kUtEisZHVsVYdCTe22KDZgQ==}
     peerDependencies:
       astro: ^2.0.15
@@ -97,7 +97,7 @@ packages:
       kleur: 4.1.5
       magic-string: 0.27.0
       mime: 3.0.0
-      sharp: 0.32.0
+      sharp: 0.31.3
     dev: false
 
   /@astrojs/language-server/0.28.3:
@@ -3876,8 +3876,8 @@ packages:
       semver: 7.3.8
     dev: false
 
-  /node-addon-api/6.0.0:
-    resolution: {integrity: sha512-GyHvgPvUXBvAkXa0YvYnhilSB1A+FRYMpIVggKzPZqdaZfevZOuzfWzyvgzOwRLHBeo/MMswmJFsrNF4Nw1pmA==}
+  /node-addon-api/5.1.0:
+    resolution: {integrity: sha512-eh0GgfEkpnoWDq+VY8OyvYhFEzBk6jIYbRKdIlyTiAXIVJ8PyBaKb0rp7oDtoddbdoHWhq8wwr+XZ81F1rpNdA==}
     dev: false
 
   /node-releases/2.0.10:
@@ -4607,14 +4607,14 @@ packages:
     resolution: {integrity: sha512-rb+9B5YBIEzYcD6x2VKidaa+cqYBJQKnU4oe4E3ANwRRN56yk/ua1YCJT1n21NTS8w6CcOclAKNP3PhdCXKYtQ==}
     dev: false
 
-  /sharp/0.32.0:
-    resolution: {integrity: sha512-yLAypVcqj1toSAqRSwbs86nEzfyZVDYqjuUX8grhFpeij0DDNagKJXELS/auegDBRDg1XBtELdOGfo2X1cCpeA==}
+  /sharp/0.31.3:
+    resolution: {integrity: sha512-XcR4+FCLBFKw1bdB+GEhnUNXNXvnt0tDo4WsBsraKymuo/IAuPuCBVAL2wIkUw2r/dwFW5Q5+g66Kwl2dgDFVg==}
     engines: {node: '>=14.15.0'}
     requiresBuild: true
     dependencies:
       color: 4.2.3
       detect-libc: 2.0.1
-      node-addon-api: 6.0.0
+      node-addon-api: 5.1.0
       prebuild-install: 7.1.1
       semver: 7.3.8
       simple-get: 4.0.1
