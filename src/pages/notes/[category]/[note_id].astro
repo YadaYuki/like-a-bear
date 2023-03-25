@@ -62,11 +62,11 @@ export async function getStaticPaths() {
 }
 const { note, relatedNoteItems } = Astro.props;
 const { Content } = await note.render();
-
+const ogImgUrl = `/ogp/${note.data.noteId}.png`;
 const url = Astro.url.toString();
 ---
 
-<Layout page={"notes"}>
+<Layout page={"notes"} ogType={"article"} image={ogImgUrl}>
   <TitleSection noteItem={note.data} />
   <TwitterShareButton shareUrl={constructTwitterShareURL(url)} />
   <div class="note_content_wrapper">
