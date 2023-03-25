@@ -42,6 +42,7 @@ const { page } = Astro.props;
   }
   div {
     display: flex;
+    height: 56px;
   }
   span {
     font-weight: 300;
@@ -56,10 +57,10 @@ const { page } = Astro.props;
   }
   h2 {
     margin: 0 12px;
-    font-family: Roboto, sans-serif;
-    font-size: 16px;
+    font-family: "Noto sans JP", sans-serif;
+    font-size: 20px;
     font-weight: 600;
-    padding: 20px 0;
+    padding: 18px 0;
   }
 
   @media screen and (min-width: 768px) {
@@ -68,11 +69,12 @@ const { page } = Astro.props;
     }
     div {
       width: 768px;
+      height: 64px;
       margin: 0 auto;
     }
     h2 {
-      font-size: 20px;
-      padding: 22px 0;
+      font-size: 24px;
+      padding: 20px 0;
     }
     img {
       width: 48px;
