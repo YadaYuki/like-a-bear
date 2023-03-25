@@ -9,9 +9,9 @@ export const OgImgTemplate = ({ title }: Props) => {
     <div style={{ backgroundColor: "#fff", display: "flex" }}>
       <div
         style={{
-          width: "688px",
-          height: "432px",
-          fontSize: "40px",
+          width: "920px",
+          height: "630px",
+          fontSize: "56px",
           display: "flex",
           alignItems: "center",
         }}
@@ -20,8 +20,8 @@ export const OgImgTemplate = ({ title }: Props) => {
       </div>
       <div
         style={{
-          width: "208px",
-          height: "432px",
+          width: "280px",
+          height: "630px",
           backgroundColor: "#f2f2f2",
           display: "flex",
         }}
@@ -29,18 +29,18 @@ export const OgImgTemplate = ({ title }: Props) => {
         <div
           style={{
             display: "flex",
-            marginLeft: "8px",
-            marginTop: "376px",
+            marginLeft: "16px",
+            marginTop: "558px",
           }}
         >
           <img
             src={`${SITE_URL}/bear.png`}
-            style={{ borderRadius: "24px" }}
-            width={48}
-            height={48}
+            style={{ borderRadius: "32px" }}
+            width={64}
+            height={64}
           />
           <div
-            style={{ fontSize: "24px", marginTop: "8px", marginLeft: "8px" }}
+            style={{ fontSize: "32px", marginTop: "8px", marginLeft: "8px" }}
           >
             Like a Bear
           </div>

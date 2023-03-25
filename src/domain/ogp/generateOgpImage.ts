@@ -14,8 +14,8 @@ export const generateSvgFromComponent = async (title: string) => {
       title,
     }),
     {
-      width: 896,
-      height: 432,
+      width: 1200,
+      height: 630,
       fonts: [
         {
           name: "Noto Sans JP",
