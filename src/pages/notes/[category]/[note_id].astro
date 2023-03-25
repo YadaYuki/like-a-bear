@@ -13,8 +13,6 @@ import type { TokenizedDocument } from "~/domain/recommend/type";
 import { CosineSimilarityCalculator } from "~/domain/recommend/similarityCalculator/CosineSimilarityCalculator";
 import type { NoteType } from "~/schemas/note";
 
-// TODO: Recommend Items
-
 type Props = {
   note: CollectionEntry<"notes">;
   relatedNoteItems: NoteType[];
