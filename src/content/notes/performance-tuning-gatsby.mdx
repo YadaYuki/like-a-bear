@@ -154,17 +154,19 @@ console.log が実行された＝そのコンポーネントが rendering され
 
 まず、私が担当しているサイトの redux 構造を見ていきましょう。
 
-```
+```js
 {
-stock:{
-stockMinutes:{
-categoryHoge:{categoryHoge の分足株価},
-categoryFuga:{categoryFuga の分足株価}
-....
-}
-....
-}
-news:{...}
+    stock:{
+        stockMinutes:{
+            categoryHoge:[categoryHoge の分足株価],
+            categoryFuga:[categoryFuga の分足株価]
+            ....
+        }
+        ....
+    }
+    news:{
+        ...
+    }
 }
 ```
 
@@ -173,19 +175,18 @@ redux の"stock"内にサイト全体の株価データ,"news"内にサイト全
 ここで、修正する以前株価のコンポーネントは以下のような実装になっていました。
 ```jsx
 const StockMinute: React.FC<Props> = { category } => {
-const dispatch = useDispatch()
-const { stockMinutes } = useSelector(
-(state: AppState) => state.stock
-)
-// ここで redux を参照！
-useEffect(() => {
-dispatch(actions.getStockMinutesCategory({ category }))
-// 株価データを API から Fetch する
-}, [dispatch, category])
-
-const stockMinutesCategory = stockMinutes[category]
-
-...
+    const dispatch = useDispatch()
+    const { stockMinutes } = useSelector(
+        (state: AppState) => state.stock
+    )
+    // ここで redux を参照！
+    useEffect(() => {
+        dispatch(actions.getStockMinutesCategory({ category }))
+        // 株価データを API から Fetch する
+    }, [dispatch, category])
+    const stockMinutesCategory = stockMinutes[category]
+    ...
+}
 ```
 
 StockMinutes に props として与える category が 6 種類存在し、6 つの分足グラフがトップページには表示されています。
@@ -196,16 +197,16 @@ StockMinutes に props として与える category が 6 種類存在し、6 つ
 
 ```jsx
 const StockMinute: React.FC<Props> = { category } => {
-const dispatch = useDispatch()
-const stockMinutesCategory = useSelector(
-(state: AppState) => state.stock.stockMinutes[category]
-)
-useEffect(() => {
-dispatch(actions.getStockMinutesCategory({ category }))
-// 株価データを API から Fetch する
-}, [dispatch, category])
-
-...
+    const dispatch = useDispatch()
+    const stockMinutesCategory = useSelector(
+        (state: AppState) => state.stock.stockMinutes[category]
+    )
+    useEffect(() => {
+        dispatch(actions.getStockMinutesCategory({ category }))
+    // 株価データを API から Fetch する
+    }, [dispatch, category])
+    ...
+}
 ```
 このような修正を施すだけで、各カテゴリーの株価が Fetch される ⇒ 各カテゴリーの株価グラフがレンダリングされるという以下のような状態に改良することができました。
 

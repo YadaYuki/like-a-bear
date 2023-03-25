@@ -22,9 +22,12 @@
     "dayjs": "^1.11.7",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "satori": "^0.4.4",
+    "sharp": "0.31.3",
     "twemoji-parser": "^14.0.0"
   },
   "devDependencies": {
+    "@types/sharp": "^0.31.1",
     "@types/twemoji-parser": "^13.1.1",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "@typescript-eslint/parser": "^5.53.0",

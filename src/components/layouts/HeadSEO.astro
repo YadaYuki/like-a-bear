@@ -2,7 +2,7 @@
 import { SITE_DESCRIPTION, SITE_TITLE } from "~/consts/meta";
 import { TWITTER_ID } from "~/consts/sns";
 
-interface Props {
+export type Props = {
   title?: string;
   description?: string;
   image?: string;
@@ -12,13 +12,13 @@ interface Props {
     site?: string;
   };
   ogType?: "website" | "article" | "book" | "profile"; // ref: https://ogp.me/
-}
+};
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const {
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
-  image = "/bear.png", // TODO: set default.
+  image = "/bear.png",
   twitter = { card: "summary_large_image", site: TWITTER_ID },
   ogType = "website",
 } = Astro.props;

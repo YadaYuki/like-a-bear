@@ -13,8 +13,6 @@ import type { TokenizedDocument } from "~/domain/recommend/type";
 import { CosineSimilarityCalculator } from "~/domain/recommend/similarityCalculator/CosineSimilarityCalculator";
 import type { NoteType } from "~/schemas/note";
 
-// TODO: Recommend Items
-
 type Props = {
   note: CollectionEntry<"notes">;
   relatedNoteItems: NoteType[];
@@ -62,11 +60,18 @@ export async function getStaticPaths() {
 }
 const { note, relatedNoteItems } = Astro.props;
 const { Content } = await note.render();
-
+const { noteId, title, description } = note.data;
+const ogImgUrl = `/ogp/${noteId}.png`;
 const url = Astro.url.toString();
 ---
 
-<Layout page={"notes"}>
+<Layout
+  page={"notes"}
+  title={title}
+  description={description}
+  ogType={"article"}
+  image={ogImgUrl}
+>
   <TitleSection noteItem={note.data} />
   <TwitterShareButton shareUrl={constructTwitterShareURL(url)} />
   <div class="note_content_wrapper">
