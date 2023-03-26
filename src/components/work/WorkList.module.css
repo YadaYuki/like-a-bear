@@ -1,0 +1,24 @@
+.grid {
+  margin-top: 8px;
+}
+
+.item_content {
+  position: relative;
+}
+
+.work_tag {
+  position: absolute;
+  bottom: 12px;
+  left: 8px;
+  margin: 0;
+  padding: 4px;
+  font-size: 8px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 4px;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.item_content > img {
+  border-radius: 16px;
+}

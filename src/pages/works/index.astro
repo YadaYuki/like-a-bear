@@ -1,0 +1,9 @@
+---
+import Layout from "~/components/layouts/Layout.astro";
+import { WorkList } from "~/components/work/WorkList";
+import { Works } from "~/data/works";
+---
+
+<Layout page={"works"}>
+  <WorkList client:load workList={Works} />
+</Layout>
