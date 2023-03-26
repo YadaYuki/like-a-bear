@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import styles from "./WorkList.module.css";
 import type { WorkType } from "~/schemas/work";
+import { WORK_CATEGORY_TO_COLOR_CODE } from "~/consts/color";
 
 type Props = {
   workList: WorkType[];
@@ -44,13 +45,19 @@ const WorkItem = ({ work }: WorkItemProps) => {
   }, []);
   return (
     <div ref={itemRef} key={work.wordId}>
-      <a>
+      <a href={`/works/${work.wordId}`}>
         <div ref={contentRef} className={styles.item_content}>
           <img
             alt={work.title}
             width="100%"
             src={`/works/${work.wordId}.png`}
           />
+          <p
+            style={{ background: WORK_CATEGORY_TO_COLOR_CODE[work.category] }}
+            className={styles.work_tag}
+          >
+            {work.category}
+          </p>
         </div>
       </a>
     </div>

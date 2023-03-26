@@ -7,7 +7,7 @@ export const Works: WorkType[] = [
       "Dark Patterns in e-commerce: a dataset and its base line evaluation",
     category: "Research",
     description:
-      " Dark patterns are malicious user interface design that induce users to take unintended actions on the web. In this research, we constructed a text-based dataset for dark pattern auto detection in e-commerce sites. We also applied machine learning methods to show the automatic detection accuracy as baselines including transformer-based pre-trained language models ( e.g. BERT ). This research work has been published in IEEE BigData 2022.",
+      "Dark patterns are malicious user interface design that induce users to take unintended actions on the web. In this research, we constructed a text-based dataset for dark pattern auto detection in e-commerce sites. We also applied machine learning methods to show the automatic detection accuracy as baselines including transformer-based pre-trained language models ( e.g. BERT ). This research work has been published in IEEE BigData 2022.",
     githubUrl: "https://github.com/yamanalab/ec-darkpattern",
     thesisUrl: "https://arxiv.org/abs/2211.06543",
   },
@@ -21,11 +21,21 @@ export const Works: WorkType[] = [
     blogUrl: "https://zenn.dev/yukiyada/articles/7e2c67d8406f0d",
   },
   {
-    wordId: "study-app-effectivest",
-    title: "Effectivest: study app that maximizes learning efficiency",
+    wordId: "underwriting",
+    title:
+      "Underwriting: Real Estate Investment Simulation App for Professional",
     category: "Development",
+    description: "",
+  },
+  {
+    wordId: "velox-label-pfn",
+    title:
+      "VeloxLabel: An Efficient Annotation Tool for Object Recognition (Semantic Segmentation) Using Active Learning Techniques.",
+    category: "OSS",
     description:
-      "Effectivest is a learning app that maximizes your learning efficiency. You can create your own tests using the app. The app saves your accuracy rates for each question, allowing you to focus on areas where you struggle. Additionally, the app provides graphs of your progress, allowing you to visually track your growth over time.",
+      "This is a project at Preferred Networks Inc. VeloxLabel is an Efficient Annotation Tool for Object Recognition (Semantic Segmentation) Using Active Learning Techniques. ",
+    blogUrl:
+      "https://tech.preferred.jp/ja/blog/efficient-annotation-tool-using-active-learning/",
   },
   {
     wordId: "nand2tetris-golang",
@@ -58,6 +68,13 @@ export const Works: WorkType[] = [
       "https://docs.google.com/presentation/d/1xgZ-q9xg8QciYratFcFoUVVn1_MJOMA5KTJI1IQoQq8/edit",
   },
   {
+    wordId: "like-a-bear",
+    title: "Like a Bear",
+    category: "Development",
+    description: "My own blog.",
+    serviceUrl: "",
+  },
+  {
     wordId: "transformer-from-scratch-pytorch",
     title:
       "Transformer from scratch: English to Japanese translator by Pytorch.",
@@ -69,21 +86,18 @@ export const Works: WorkType[] = [
     blogUrl: "https://zenn.dev/yukiyada/articles/59f3b820c52571",
   },
   {
+    wordId: "study-app-effectivest",
+    title: "Effectivest: study app that maximizes learning efficiency",
+    category: "Development",
+    description:
+      "Effectivest is a learning app that maximizes your learning efficiency. You can create your own tests using the app. The app saves your accuracy rates for each question, allowing you to focus on areas where you struggle. Additionally, the app provides graphs of your progress, allowing you to visually track your growth over time.",
+  },
+  {
     wordId: "portfolio-me",
     title: "Portfolio Site",
     category: "Development",
     description: "My Portfolio Site. Developed in Vue.js/JavaScript",
     serviceUrl: "https://www.yyada.jp/",
-  },
-  {
-    wordId: "velox-label-pfn",
-    title:
-      "VeloxLabel: An Efficient Annotation Tool for Object Recognition (Semantic Segmentation) Using Active Learning Techniques.",
-    category: "OSS",
-    description:
-      "This is a project at Preferred Networks Inc. VeloxLabel is an Efficient Annotation Tool for Object Recognition (Semantic Segmentation) Using Active Learning Techniques. ",
-    blogUrl:
-      "https://tech.preferred.jp/ja/blog/efficient-annotation-tool-using-active-learning/",
   },
 ];
 
