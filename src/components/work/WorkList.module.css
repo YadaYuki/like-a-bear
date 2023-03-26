@@ -1,0 +1,11 @@
+.grid {
+  margin-top: 8px;
+}
+
+/* .item_content {
+  border-radius: 8px;
+} */
+
+.item_content > img {
+  border-radius: 16px;
+}
