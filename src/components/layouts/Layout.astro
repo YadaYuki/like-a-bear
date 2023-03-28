@@ -1,5 +1,6 @@
 ---
-import HeadSEO, { Props as HeadProps } from "./HeadSEO.astro";
+import Body from "./Body.astro";
+import type { Props as HeadProps } from "./HeadSEO.astro";
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 import "~/styles/global.css";
@@ -10,28 +11,24 @@ type Props = {
   page: PageType;
 } & HeadProps;
 
-const { title, description, page, ...rest } = Astro.props;
+const { page, ...bodyProps } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <HeadSEO title={title} description={description} {...rest} />
-  <body>
-    <Header page={page} />
-    <main>
-      <slot />
-    </main>
-    <Footer />
-    <style>
+<Body {...bodyProps}>
+  <Header page={page} />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+  <style>
+    main {
+      margin: 0 8px;
+    }
+    @media screen and (min-width: 768px) {
       main {
-        margin: 0 8px;
+        width: 768px;
+        margin: 0 auto;
       }
-      @media screen and (min-width: 768px) {
-        main {
-          width: 768px;
-          margin: 0 auto;
-        }
-      }
-    </style>
-  </body>
-</html>
+    }
+  </style>
+</Body>

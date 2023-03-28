@@ -1,0 +1,112 @@
+---
+import type { WorkType } from "~/schemas/work";
+import { WORK_CATEGORY_TO_COLOR_CODE } from "~/consts/color";
+import GithubLogo from "~/components/common/logo/GithubLogo.astro";
+import NoteLogo from "~/components/common/logo/NoteLogo.astro";
+import ServiceLogo from "~/components/common/logo/ServiceLogo.astro";
+
+type Props = {
+  work: WorkType;
+};
+
+const { work } = Astro.props;
+
+const imageUrl = `/works/${work.workId}.png`;
+const workTagBackgroundColor = WORK_CATEGORY_TO_COLOR_CODE[work.category];
+---
+
+<div>
+  <img src={imageUrl} alt={work.title} />
+  <div class="detail_wrapper">
+    <p class="work_tag">
+      {work.category}
+    </p>
+    <h3 class="title">
+      {work.title}
+    </h3>
+    <div class="description">
+      {work.description.map((desc) => <p>{desc}</p>)}
+    </div>
+    <div class="link_wrapper">
+      {
+        work.serviceUrl && (
+          <a>
+            <div class="service_link_wrapper">
+              <ServiceLogo fill="#fff" width={24} height={24} />
+            </div>
+          </a>
+        )
+      }
+      {
+        work.githubUrl && (
+          <a>
+            <div class="github_link_wrapper">
+              <GithubLogo fill="#000" width={32} height={32} />
+            </div>
+          </a>
+        )
+      }
+      {
+        work.thesisUrl && (
+          <a>
+            <div class="thesis_link_wrapper">
+              <NoteLogo fill="#fff" width={24} height={24} />
+            </div>
+          </a>
+        )
+      }
+    </div>
+  </div>
+</div>
+
+<style define:vars={{ workTagBackgroundColor }}>
+  div {
+    background: #fff;
+  }
+  div > img {
+    width: 100%;
+  }
+  .detail_wrapper {
+    font-family: "Inter";
+    padding: 8px 8px 24px 8px;
+  }
+  .title {
+    line-height: 1.4em;
+    margin-top: 8px;
+  }
+  .description {
+    margin-top: 8px;
+  }
+  .description > p {
+    line-height: 1.4em;
+    text-indent: 12px;
+    margin: 0;
+  }
+  .work_tag {
+    background-color: var(--workTagBackgroundColor);
+    display: inline-block;
+    margin: 0;
+    padding: 4px;
+    font-size: 8px;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 4px;
+    font-family: "Noto Sans JP", sans-serif;
+  }
+  .link_wrapper {
+    display: flex;
+    margin-top: 8px;
+  }
+  .thesis_link_wrapper,
+  .service_link_wrapper {
+    background: #000;
+    padding: 4px;
+    border-radius: 16px;
+    height: 32px;
+    width: 32px;
+  }
+
+  .link_wrapper > * {
+    margin-right: 8px;
+  }
+</style>

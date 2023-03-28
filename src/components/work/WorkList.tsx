@@ -18,7 +18,7 @@ export const WorkList = ({ workList }: Props) => {
   return (
     <div className={styles.grid} style={GRID_STYLE}>
       {workList.map((work) => (
-        <WorkItem work={work} key={work.wordId} />
+        <WorkItem work={work} key={work.workId} />
       ))}
     </div>
   );
@@ -44,13 +44,13 @@ const WorkItem = ({ work }: WorkItemProps) => {
     itemCurrent.style.gridRowEnd = `span ${rowSpan}`;
   }, []);
   return (
-    <div ref={itemRef} key={work.wordId}>
-      <a href={`/works/${work.wordId}`}>
+    <div ref={itemRef} key={work.workId}>
+      <a href={`/works/${work.workId}`}>
         <div ref={contentRef} className={styles.item_content}>
           <img
             alt={work.title}
             width="100%"
-            src={`/works/${work.wordId}.png`}
+            src={`/works/${work.workId}.png`}
           />
           <p
             style={{ background: WORK_CATEGORY_TO_COLOR_CODE[work.category] }}

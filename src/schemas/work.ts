@@ -9,14 +9,13 @@ export const WorkCategory = z.union([
 export type WorkCategoryType = z.infer<typeof WorkCategory>;
 
 export const Work = z.object({
-  wordId: z.string(),
+  workId: z.string(),
   title: z.string(),
   category: WorkCategory,
-  description: z.string(),
+  description: z.array(z.string()), // paragraph seperated
   githubUrl: z.string().optional(),
   thesisUrl: z.string().optional(),
   serviceUrl: z.string().optional(),
-  blogUrl: z.string().optional(),
 });
 
 export const Works = z.array(Work);
