@@ -1,0 +1,33 @@
+---
+import type { WorkType } from "~/schemas/work";
+import ContentPC from "./ContentPC.astro";
+import ContentSP from "./ContentSP.astro";
+
+type Props = {
+  work: WorkType;
+};
+
+const { work } = Astro.props;
+---
+
+<div>
+  <div class="pc">
+    <ContentPC work={work} />
+  </div>
+  <div class="sp">
+    <ContentSP work={work} />
+  </div>
+</div>
+
+<style>
+  @media screen and (max-width: 768px) {
+    .pc {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .sp {
+      display: none;
+    }
+  }
+</style>

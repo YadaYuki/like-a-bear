@@ -1,0 +1,96 @@
+---
+import type { WorkType } from "~/schemas/work";
+import WorkTag from "~/components/common/WorkTag.astro";
+import LinkWrapper from "~/components/work-detail/content/LinkWrapper.astro";
+
+type Props = {
+  work: WorkType;
+};
+
+const { work } = Astro.props;
+const {
+  workId,
+  title,
+  description,
+  category,
+  serviceUrl,
+  githubUrl,
+  thesisUrl,
+} = work;
+
+const imageUrl = `/works/${workId}.png`;
+---
+
+<div class="work_wrapper">
+  <div class="image_wrapper">
+    <img src={imageUrl} alt={title} />
+  </div>
+  <div class="description_wrapper">
+    <div class="tag_wrapper">
+      <WorkTag category={category} />
+    </div>
+    <div class="link_wrapper">
+      <LinkWrapper
+        serviceUrl={serviceUrl}
+        githubUrl={githubUrl}
+        thesisUrl={thesisUrl}
+      />
+    </div>
+    <h3 class="title">
+      {title}
+    </h3>
+    <div class="description">
+      {description.map((desc) => <p>{desc}</p>)}
+    </div>
+  </div>
+</div>
+
+<style>
+  .description_wrapper {
+    margin: 16px;
+  }
+  .title {
+    line-height: 1.4em;
+    margin-top: 8px;
+  }
+  .description {
+    margin-top: 8px;
+  }
+  .description > p {
+    line-height: 1.4em;
+    text-indent: 12px;
+    margin: 0;
+  }
+  .tag_wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .link_wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .work_wrapper {
+    margin: 48px 0;
+    width: 768px;
+    height: 560px;
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+  }
+  .image_wrapper {
+    width: 384px;
+    background: #000;
+    overflow: scroll;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+  }
+  .image_wrapper > img {
+    width: 100%;
+    margin: auto;
+  }
+  .description_wrapper {
+    width: 384px;
+    overflow: scroll;
+  }
+</style>

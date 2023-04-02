@@ -2,7 +2,7 @@
 import { Works } from "~/data/works";
 import type { WorkType } from "~/schemas/work";
 import Layout from "~/components/work-detail/layout/index.astro";
-import ContentSP from "~/components/work-detail/content/ContentSP.astro";
+import Content from "~/components/work-detail/content/Content.astro";
 
 type Props = {
   work: WorkType;
@@ -21,5 +21,5 @@ const { work } = Astro.props;
 ---
 
 <Layout>
-  <ContentSP work={work} />
+  <Content work={work} />
 </Layout>
