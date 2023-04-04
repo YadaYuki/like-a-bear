@@ -7,10 +7,9 @@ export type Props = {
   description?: string;
   image?: string;
   canonicalURL?: string;
-  twitter?: {
-    card?: "summary" | "summary_large_image" | "player" | "app";
-    site?: string;
-  };
+  twitterCard?: "summary" | "summary_large_image" | "player" | "app";
+  twitterSite?: string;
+
   ogType?: "website" | "article" | "book" | "profile"; // ref: https://ogp.me/
 };
 
@@ -19,7 +18,8 @@ const {
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
   image = "/bear.png",
-  twitter = { card: "summary_large_image", site: TWITTER_ID },
+  twitterCard = "summary",
+  twitterSite = TWITTER_ID,
   ogType = "website",
 } = Astro.props;
 ---
@@ -54,10 +54,10 @@ const {
   <meta property="og:image" content={new URL(image, Astro.url)} />
 
   <!-- Twitter -->
-  <meta property="twitter:card" content={twitter.card} />
+  <meta property="twitter:card" content={twitterCard} />
   <meta property="twitter:url" content={Astro.url} />
   <meta property="twitter:title" content={title} />
   <meta property="twitter:description" content={description} />
-  <meta property="twitter:site" content={twitter.site} />
+  <meta property="twitter:site" content={twitterSite} />
   <meta property="twitter:image" content={new URL(image, Astro.url)} />
 </head>
