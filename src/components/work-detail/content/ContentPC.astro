@@ -29,18 +29,18 @@ const imageUrl = `/works/${workId}.png`;
     <div class="tag_wrapper">
       <WorkTag category={category} />
     </div>
+    <h3 class="title">
+      {title}
+    </h3>
+    <div class="description">
+      {description.map((desc) => <p>{desc}</p>)}
+    </div>
     <div class="link_wrapper">
       <LinkWrapper
         serviceUrl={serviceUrl}
         githubUrl={githubUrl}
         thesisUrl={thesisUrl}
       />
-    </div>
-    <h3 class="title">
-      {title}
-    </h3>
-    <div class="description">
-      {description.map((desc) => <p>{desc}</p>)}
     </div>
   </div>
 </div>
@@ -63,11 +63,11 @@ const imageUrl = `/works/${workId}.png`;
   }
   .tag_wrapper {
     display: flex;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
   }
   .link_wrapper {
     display: flex;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
   }
   .work_wrapper {
     margin: 48px 0;

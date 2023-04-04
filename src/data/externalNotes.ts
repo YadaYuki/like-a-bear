@@ -1,8 +1,59 @@
 import { Notes, NoteType } from "~/schemas/note";
 
-const CompanyTechBlog: NoteType[] = [];
+const CompanyTechBlog: NoteType[] = [
+  {
+    title:
+      "アクティブラーニングの手法を活用した物体認識における効率的なアノテーションツールの開発",
+    description: "",
+    category: "tech",
+    emoji: "🎩",
+    tags: [
+      "machine learning",
+      "computer vision",
+      "semantic segmentation",
+      "active learning",
+      "internship",
+    ],
+    pubDate: new Date("2022-11-18"),
+    externalLink:
+      "https://tech.preferred.jp/ja/blog/efficient-annotation-tool-using-active-learning/",
+  },
+  {
+    title:
+      "フロントエンドエンジニアとしてRECRUIT Job for Student 2021 Summerに参加しました!",
+    description: "",
+    category: "tech",
+    emoji: "🎸",
+    tags: ["frontend", "typescript", "react", "internship"],
+    pubDate: new Date("2021-10-05"),
+    externalLink: "https://blog.recruit.co.jp/rmp/etc/post-21636/",
+  },
+];
 
-const AiScholarNote: NoteType[] = [];
+const AiScholarNote: NoteType[] = [
+  {
+    title:
+      "専門知識を持つデータで事前学習することの重要性とは？ ~ 法律文書の分類に対するBERTの応用 ~",
+    description: "",
+    category: "tech",
+    emoji: "📕",
+    tags: ["machine learning", "nlp", "bert", "text classification"],
+    pubDate: new Date("2022-06-21"),
+    externalLink:
+      "https://ai-scholar.tech/articles/natural-language-processing/legal-document-classification-bert",
+  },
+  {
+    title:
+      "レコメンドは思想にも影響を与えてしまうのか: トピック間の政治的立場の違いに着目したニュース推薦",
+    description: "",
+    category: "tech",
+    emoji: "🔦",
+    tags: ["machine learning", "recommendation", "bert", "text classification"],
+    pubDate: new Date("2023-02-06"),
+    externalLink:
+      "https://ai-scholar.tech/articles/recommendation/news-recommendation-political-stance",
+  },
+];
 
 const ZennNotes: NoteType[] = [
   {
@@ -18,6 +69,7 @@ const ZennNotes: NoteType[] = [
       "css",
       "ast",
       "styled-components",
+      "internship",
     ],
     pubDate: new Date("2022-11-01"),
     externalLink: "https://zenn.dev/yukiyada/articles/0ac6ef8d566b96",
@@ -39,6 +91,62 @@ const ZennNotes: NoteType[] = [
     tags: ["machine learning", "python", "pytorch", "nlp", "docker"],
     pubDate: new Date("2022-03-31"),
     externalLink: "https://zenn.dev/yukiyada/articles/59f3b820c52571",
+  },
+  {
+    title:
+      "Nand2tetrisをGoで実装する ~ コンパイラ(コンパイラ・フロントエンド)編(10,11章) ~",
+    description: "",
+    category: "tech",
+    emoji: "😺",
+    tags: ["go", "ast", "computer"],
+    pubDate: new Date("2021-11-26"),
+    externalLink: "https://zenn.dev/yukiyada/articles/23c9fde740744d",
+  },
+  {
+    title:
+      "Nand2tetrisをGoで実装する ~ 中間言語・VM(コンパイラ・バックエンド)編 ~",
+    description: "",
+    category: "tech",
+    emoji: "😺",
+    tags: ["go", "ast", "computer", "virtual machine"],
+    pubDate: new Date("2021-11-26"),
+    externalLink: "https://zenn.dev/yukiyada/articles/f90cf5fa34073c",
+  },
+  {
+    title: "Nand2tetrisをGoで実装する ~ アセンブラ編(6章) ~",
+    description: "",
+    category: "tech",
+    emoji: "😺",
+    tags: ["go", "ast", "computer", "assembler"],
+    pubDate: new Date("2021-12-03"),
+    externalLink: "https://zenn.dev/yukiyada/articles/44805448111905",
+  },
+  {
+    title: "Nand2tetrisを実装する ~ハードウェア編(1 ~ 5章)~",
+    description: "",
+    category: "tech",
+    emoji: "😺",
+    tags: ["hardware", "cpu", "computer"],
+    pubDate: new Date("2021-11-26"),
+    externalLink: "https://zenn.dev/yukiyada/articles/1c5708ddfb36db",
+  },
+  {
+    title: "Typescriptでゼロから作るニューラルネット",
+    description: "",
+    category: "tech",
+    emoji: "🧠",
+    tags: ["machine learning", "typescript"],
+    pubDate: new Date("2021-10-01"),
+    externalLink: "https://zenn.dev/yukiyada/articles/053722ddadd18a",
+  },
+  {
+    title: "個人開発物のインフラを爆速で改善する(ECS,Fargate,Docker Compose)",
+    description: "",
+    category: "tech",
+    emoji: "🎃",
+    tags: ["infrastructure", "fargate", "docker", "ecs", "aws"],
+    pubDate: new Date("2021-06-29"),
+    externalLink: "https://zenn.dev/yukiyada/articles/ae01f51e9d92c1",
   },
 ];
 
