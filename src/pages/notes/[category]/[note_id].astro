@@ -71,6 +71,7 @@ const url = Astro.url.toString();
   description={description}
   ogType={"article"}
   image={ogImgUrl}
+  twitterCard="summary_large_image"
 >
   <TitleSection noteItem={note.data} />
   <TwitterShareButton shareUrl={constructTwitterShareURL(url)} />
