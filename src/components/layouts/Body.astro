@@ -1,0 +1,16 @@
+---
+import HeadSEO, { Props as HeadProps } from "./HeadSEO.astro";
+import "~/styles/global.css";
+import "~/styles/normalize.css";
+type Props = HeadProps;
+
+const headProps = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <HeadSEO {...headProps} />
+  <body>
+    <slot />
+  </body>
+</html>

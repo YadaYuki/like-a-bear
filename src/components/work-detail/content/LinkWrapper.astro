@@ -1,0 +1,63 @@
+---
+import GithubLogo from "~/components/common/logo/GithubLogo.astro";
+import NoteLogo from "~/components/common/logo/NoteLogo.astro";
+import ServiceLogo from "~/components/common/logo/ServiceLogo.astro";
+
+type Props = {
+  serviceUrl?: string;
+  githubUrl?: string;
+  thesisUrl?: string;
+};
+
+const { serviceUrl, githubUrl, thesisUrl } = Astro.props;
+---
+
+<div class="link_wrapper">
+  {
+    serviceUrl && (
+      <a href={serviceUrl} target="_blank">
+        <div class="service_link_wrapper">
+          <ServiceLogo fill="#fff" width={24} height={24} />
+        </div>
+      </a>
+    )
+  }
+  {
+    githubUrl && (
+      <a href={githubUrl} target="_blank">
+        <div class="github_link_wrapper">
+          <GithubLogo fill="#000" width={32} height={32} />
+        </div>
+      </a>
+    )
+  }
+  {
+    thesisUrl && (
+      <a href={thesisUrl} target="_blank">
+        <div class="thesis_link_wrapper">
+          <NoteLogo fill="#fff" width={24} height={24} />
+        </div>
+      </a>
+    )
+  }
+</div>
+
+<style>
+  .link_wrapper {
+    display: flex;
+    margin-top: 8px;
+    gap: 8px;
+  }
+  .thesis_link_wrapper,
+  .service_link_wrapper {
+    background: #000;
+    padding: 4px;
+    border-radius: 16px;
+    height: 32px;
+    width: 32px;
+  }
+
+  /* .link_wrapper > * {
+    
+  } */
+</style>

@@ -1,0 +1,19 @@
+---
+import Body from "~/components/layouts/Body.astro";
+import Header from "./Header.astro";
+---
+
+<Body>
+  <Header />
+  <main>
+    <slot />
+  </main>
+</Body>
+<style>
+  @media screen and (min-width: 768px) {
+    main {
+      width: 768px;
+      margin: 0 auto;
+    }
+  }
+</style>

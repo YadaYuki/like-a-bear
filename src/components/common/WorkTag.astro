@@ -1,0 +1,29 @@
+---
+import type { WorkCategoryType } from "~/schemas/work";
+import { WORK_CATEGORY_TO_COLOR_CODE } from "~/consts/color";
+
+type Props = {
+  category: WorkCategoryType;
+};
+
+const { category } = Astro.props;
+const workTagBackgroundColor = WORK_CATEGORY_TO_COLOR_CODE[category];
+---
+
+<p class="work_tag">
+  {category}
+</p>
+
+<style define:vars={{ workTagBackgroundColor }}>
+  .work_tag {
+    background-color: var(--workTagBackgroundColor);
+    display: inline-block;
+    margin: 0;
+    padding: 4px;
+    font-size: 8px;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 4px;
+    font-family: "Noto Sans JP", sans-serif;
+  }
+</style>

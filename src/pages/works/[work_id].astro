@@ -1,0 +1,25 @@
+---
+import { Works } from "~/data/works";
+import type { WorkType } from "~/schemas/work";
+import Layout from "~/components/work-detail/layout/index.astro";
+import Content from "~/components/work-detail/content/Content.astro";
+
+type Props = {
+  work: WorkType;
+};
+
+export async function getStaticPaths() {
+  return Works.map((work) => {
+    return {
+      params: { work_id: work.workId },
+      props: { work },
+    };
+  });
+}
+
+const { work } = Astro.props;
+---
+
+<Layout>
+  <Content work={work} />
+</Layout>
