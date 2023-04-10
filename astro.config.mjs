@@ -10,6 +10,6 @@ import image from "@astrojs/image";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://like-a-bear.pages.dev/",
+  site: "https://blog.yyada.jp/",
   integrations: [mdx(), sitemap(), react(), image()],
 });
