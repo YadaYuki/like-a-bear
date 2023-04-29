@@ -3,6 +3,27 @@ import { Notes, NoteType } from "~/schemas/note";
 const CompanyTechBlog: NoteType[] = [
   {
     title:
+      "ソウゾウのインターン生として特集一括エントリー機能をリリースしました！",
+    description: "",
+    category: "tech",
+    emoji: "🎩",
+    tags: [
+      "frontend",
+      "backend",
+      "go",
+      "graphql",
+      "react",
+      "typescript",
+      "grpc",
+      "pubsub",
+      "internship",
+    ],
+    pubDate: new Date("2023-04-28"),
+    externalLink:
+      "https://engineering.mercari.com/blog/entry/20230428-6aa09381e4/",
+  },
+  {
+    title:
       "アクティブラーニングの手法を活用した物体認識における効率的なアノテーションツールの開発",
     description: "",
     category: "tech",
@@ -56,6 +77,15 @@ const AiScholarNote: NoteType[] = [
 ];
 
 const ZennNotes: NoteType[] = [
+  {
+    title: "【Astro on Cloudflare】個人ブログを支える技術",
+    description: "",
+    category: "tech",
+    emoji: "🐈",
+    tags: ["frontend", "astro", "recommendation", "react"],
+    pubDate: new Date("2023-04-17"),
+    externalLink: "https://zenn.dev/yukiyada/articles/0ac6ef8d566b96",
+  },
   {
     title:
       "【脱ランタイムCSS in JS】styled-componentsを別のCSS in JSに自動置換するCLIツールの開発",
