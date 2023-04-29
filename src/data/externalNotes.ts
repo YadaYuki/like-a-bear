@@ -6,7 +6,7 @@ const CompanyTechBlog: NoteType[] = [
       "ソウゾウのインターン生として特集一括エントリー機能をリリースしました！",
     description: "",
     category: "tech",
-    emoji: "🎩",
+    emoji: "🏹",
     tags: [
       "frontend",
       "backend",
