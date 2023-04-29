@@ -84,7 +84,7 @@ const ZennNotes: NoteType[] = [
     emoji: "🐈",
     tags: ["frontend", "astro", "recommendation", "react"],
     pubDate: new Date("2023-04-17"),
-    externalLink: "https://zenn.dev/yukiyada/articles/0ac6ef8d566b96",
+    externalLink: "https://zenn.dev/yukiyada/articles/d5681300a7fc28",
   },
   {
     title:
