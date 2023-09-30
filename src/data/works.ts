@@ -55,6 +55,17 @@ export const Works: WorkType[] = [
       "https://tech.preferred.jp/ja/blog/efficient-annotation-tool-using-active-learning/",
   },
   {
+    workId: "news-recommendation-llm",
+    title: "News Recommendation by LLM",
+    category: "Research",
+    description: [
+      "Implementation of a News Recommendation system utilizing Pretrained Large Language Models named PLM-NR(NRMS-BERT) using Python and PyTorch. We employed BERT-base and DistilBERT-base as the underlying language models, and utilized the Microsoft-originated MIND dataset for model training and evaluation.",
+      "Our trained models achieved impressive performance on validation data, closely aligning with the results reported in the PLM-NR research paper. We have also made our pretrained models publicly available for further research and applications.",
+    ],
+    thesisUrl: "https://zenn.dev/yukiyada/articles/d028faf7217ec8",
+    githubUrl: "https://github.com/YadaYuki/news-recommendation-llm",
+  },
+  {
     workId: "nand2tetris-golang",
     title:
       "Nand2tetris in Golang: Building a Modern Computer & Programming Language from First Principles",
