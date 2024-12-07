@@ -11,6 +11,8 @@ export const convertEmojiStrToTwiImage = (s: string): EmojiEntity => {
     throw Error("1 emoji must be set");
   }
   const emojiEntity = entities[0];
+  // ref: https://github.com/twitter/twemoji/issues/580#issuecomment-1376290759
+  emojiEntity.url = emojiEntity.url.replace("https://twemoji.maxcdn.com/v/latest/svg/", "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/")
   return emojiEntity;
 };
 
