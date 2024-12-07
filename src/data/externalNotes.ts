@@ -6,11 +6,11 @@ const CompanyTechBlog: NoteType[] = [
       "Vision-Language Modelを活用した「見た目が近い商品」レコメンド改善の取り組み",
     description: "",
     category: "tech",
-    emoji: "🏹",
+    emoji: "😳",
     tags: [
       "machine learning", "recommendation", "vision & language"
     ],
-    pubDate: new Date("2023-04-28"),
+    pubDate: new Date("2024-11-08"),
     externalLink:
       "https://engineering.mercari.com/blog/entry/20241104-similar-looks-recommendation-via-vision-language-model/",
   },{
