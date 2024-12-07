@@ -96,7 +96,7 @@ const ZennNotes: NoteType[] = [
     emoji: "😽",
     tags: ["machine learning", "nlp", "llm", "vision and language"],
     pubDate: new Date("2023-10-23"),
-    externalLink: "https://zenn.dev/yukiyada/articles/d028faf7217ec8",
+    externalLink: "https://zenn.dev/turing_motors/articles/64936f88ba720e",
   },
   {
     title:
@@ -106,7 +106,7 @@ const ZennNotes: NoteType[] = [
     emoji: "📑",
     tags: ["machine learning", "recommendation", "bert"],
     pubDate: new Date("2023-09-25"),
-    externalLink: "https://zenn.dev/turing_motors/articles/64936f88ba720e",
+    externalLink: "https://zenn.dev/yukiyada/articles/d028faf7217ec8",
   },
   {
     title: "【Astro on Cloudflare】個人ブログを支える技術",
