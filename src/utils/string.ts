@@ -19,3 +19,4 @@ export const convertEmojiStrToTwiImage = (s: string): EmojiEntity => {
 export const constructTwitterShareURL = (url: string) => {
   return `http://www.twitter.com/share?url=${url}`;
 };
+  

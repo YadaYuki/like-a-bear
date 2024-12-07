@@ -3,6 +3,18 @@ import { Notes, NoteType } from "~/schemas/note";
 const CompanyTechBlog: NoteType[] = [
   {
     title:
+      "Vision-Language Modelを活用した「見た目が近い商品」レコメンド改善の取り組み",
+    description: "",
+    category: "tech",
+    emoji: "🏹",
+    tags: [
+      "machine learning", "recommendation", "vision & language"
+    ],
+    pubDate: new Date("2023-04-28"),
+    externalLink:
+      "https://engineering.mercari.com/blog/entry/20241104-similar-looks-recommendation-via-vision-language-model/",
+  },{
+    title:
       "ソウゾウのインターン生として特集一括エントリー機能をリリースしました！",
     description: "",
     category: "tech",
