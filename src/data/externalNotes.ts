@@ -7,13 +7,12 @@ const CompanyTechBlog: NoteType[] = [
     description: "",
     category: "tech",
     emoji: "😳",
-    tags: [
-      "machine learning", "recommendation", "vision & language"
-    ],
+    tags: ["machine learning", "recommendation", "vision & language"],
     pubDate: new Date("2024-11-08"),
     externalLink:
       "https://engineering.mercari.com/blog/entry/20241104-similar-looks-recommendation-via-vision-language-model/",
-  },{
+  },
+  {
     title:
       "ソウゾウのインターン生として特集一括エントリー機能をリリースしました！",
     description: "",

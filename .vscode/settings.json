@@ -1,5 +1,4 @@
 {
-  "prettier.documentSelectors": ["**/*.astro"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
@@ -7,6 +6,8 @@
   },
   "[xml]": {
     "editor.defaultFormatter": "DotJoshJohnson.xml"
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
   }
 }
- 

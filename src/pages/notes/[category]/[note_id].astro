@@ -73,14 +73,37 @@ const url = Astro.url.toString();
   image={ogImgUrl}
   twitterCard="summary_large_image"
 >
-  <TitleSection noteItem={note.data} />
-  <TwitterShareButton shareUrl={constructTwitterShareURL(url)} />
-  <div class="note_content_wrapper">
-    <Content />
+  <div class="note_wrapper">
+    <TitleSection noteItem={note.data} />
+    <TwitterShareButton shareUrl={constructTwitterShareURL(url)} />
+    <div class="note_content_wrapper">
+      <Content />
+    </div>
+    <RelatedNoteList relatedNoteList={relatedNoteItems} />
   </div>
-  <RelatedNoteList relatedNoteList={relatedNoteItems} />
+  <p class="on_print_warning_message">
+    印刷して勝手に配布することはやめてほしいです。親戚といえど非常に迷惑です。
+    <br />
+    いい年なんだから人の気持ちを想像できるようになりましょう 🤗
+    <br />
+    （印刷を選択したら、この文字が出るようになってます。）
+  </p>
 </Layout>
 <style is:global>
+  .on_print_warning_message {
+    display: none;
+  }
+  @media print {
+    .note_wrapper {
+      display: none;
+    }
+    .on_print_warning_message {
+      display: block;
+      margin: 10px 0;
+      font-size: 1em;
+    }
+  }
+
   @media screen and (max-width: 768px) {
     main {
       margin: 0 !important;
