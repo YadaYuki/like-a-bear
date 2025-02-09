@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback, useState } from "react";
 import styles from "./WorkList.module.css";
 import type { WorkType } from "~/schemas/work";
 import { WORK_CATEGORY_TO_COLOR_CODE } from "~/consts/color";
@@ -15,6 +15,25 @@ const GRID_STYLE = {
 } as const;
 
 export const WorkList = ({ workList }: Props) => {
+  const [isAllImagesLoaded, setAllImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    const promises = workList.map((work) => {
+      return new Promise<void>((resolve) => {
+        const img = new Image();
+        img.src = `/works/${work.workId}.png`;
+        img.onload = () => resolve();
+        img.onerror = () => resolve();
+      });
+    });
+    Promise.all(promises).then(() => {
+      setAllImagesLoaded(true);
+    });
+  }, [workList]);
+
+  if (!isAllImagesLoaded) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className={styles.grid} style={GRID_STYLE}>
       {workList.map((work) => (
@@ -31,26 +50,32 @@ type WorkItemProps = {
 const WorkItem = ({ work }: WorkItemProps) => {
   const contentRef = useRef<HTMLDivElement>(null);
   const itemRef = useRef<HTMLDivElement>(null);
+
+  const recalcRowSpan = useCallback(() => {
+    if (!contentRef.current || !itemRef.current) return;
+    const gridGap = GRID_STYLE.gridGap;
+    const rowHeight = GRID_STYLE.gridAutoRows;
+    const height = contentRef.current.getBoundingClientRect().height;
+    const rowSpan = Math.ceil((height + gridGap) / (rowHeight + gridGap));
+    itemRef.current.style.gridRowEnd = `span ${rowSpan}`;
+  }, [contentRef, itemRef]);
+
   useEffect(() => {
-    const { current: contentCurrent } = contentRef;
-    const { current: itemCurrent } = itemRef;
-    if (!contentCurrent || !itemCurrent) {
-      return;
-    }
-    const rowSpan = Math.ceil(
-      (contentCurrent.getBoundingClientRect().height + GRID_STYLE.gridGap) /
-        (GRID_STYLE.gridAutoRows + GRID_STYLE.gridGap)
-    );
-    itemCurrent.style.gridRowEnd = `span ${rowSpan}`;
-  }, []);
+    window.addEventListener("resize", recalcRowSpan);
+    return () => {
+      window.removeEventListener("resize", recalcRowSpan);
+    };
+  }, [recalcRowSpan]);
+
   return (
-    <div ref={itemRef} key={work.workId}>
+    <div ref={itemRef}>
       <a href={`/works/${work.workId}`}>
         <div ref={contentRef} className={styles.item_content}>
           <img
             alt={work.title}
             width="100%"
             src={`/works/${work.workId}.png`}
+            onLoad={recalcRowSpan}
           />
           <p
             style={{ background: WORK_CATEGORY_TO_COLOR_CODE[work.category] }}
