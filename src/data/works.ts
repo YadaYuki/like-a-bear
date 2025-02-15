@@ -2,32 +2,21 @@ import { WorkType, Works as WorksValidator } from "~/schemas/work";
 
 export const Works: WorkType[] = [
   {
-    workId: "dark-patterns-in-e-commerce",
-    title:
-      "Dark Patterns in e-commerce: a dataset and its base line evaluation",
-    category: "Research",
+    workId: "siglip-similar-looks",
+    title: "Visual Recommendation using Vision Language models, SigLIP",
+    category: "Development",
     description: [
-      "Dark patterns, which are user interface designs in online services, induce users to take unintended actions. Recently, dark patterns have been raised as an issue of privacy and fairness.",
-      "In this work, we constructed a dataset for dark pattern detection and prepared its baseline detection performance with state-of-the-art machine learning methods. The original dataset was obtained from Mathur et al.'s study in 2019, which consists of 1,818 dark pattern texts from shopping sites. Then, we added negative samples, i.e., non-dark pattern texts, by retrieving texts from the same websites as Mathur et al.'s dataset.",
-      "We also applied state-of-the-art machine learning methods to show the automatic detection accuracy as baselines, including BERT, RoBERTa, ALBERT, and XLNet. As a result of 5-fold cross-validation, we achieved the highest accuracy of 0.975 with RoBERTa. We published the dataset and baseline source codes on Github.",
-      "This research work has been published in IEEE BigData 2022.",
+      'This project focuses on improving product recommendations at Mercari, undertaken by the AI/LLM team using a Vision-Language Model called SigLIP. By fine-tuning SigLIP with Mercari\'s product data, they significantly enhanced the "Similar Looks" recommendation feature.',
+      "Key outcomes include: ",
+      "* +50% increase in click-through rates",
+      "* +14% increase in purchases through product detail pages.",
+      "The technology stack used involves PyTorch, Transformers, and Google Cloud Platform (including GKE, Pub/Sub, Vector Search), along with TensorRT optimization for performance enhancement.",
+      "The system architecture consists of components like an Embeddings Worker that triggers on new listings to generate embeddings, a microservice for similar product search, and a vector store, providing a scalable solution. This project achieved substantial enhancements in both user experience and business KPIs for Mercari.",
     ],
-    githubUrl: "https://github.com/yamanalab/ec-darkpattern",
-    thesisUrl: "https://arxiv.org/abs/2211.06543",
+    thesisUrl:
+      "https://engineering.mercari.com/blog/entry/20241104-similar-looks-recommendation-via-vision-language-model/",
   },
-  {
-    workId: "search-engine-omochi",
-    title: "Omochi: Full text search engine from scratch in Golang",
-    category: "OSS",
-    description: [
-      "Omochi is a full-text search engine built using Go programming language. It implements various features including morphological analysis for separating documents into words, ranking documents using TfIdf, compression and decompression of inverted indexes and posting lists, and document indexing, all from scratch using Go.",
-      "Omochi adopts a layered architecture design for its application. MySQL is used for storing inverted indexes and documents, while Meta's ent is used for object-relational mapping.",
-      "It supports two languages, Japanese and English, allowing for registration and search of any document.",
-      "Omochi's source code is publicly available on Github and has garnered more than 70 stars as of April 2023.",
-    ],
-    githubUrl: "https://github.com/YadaYuki/Omochi",
-    thesisUrl: "https://zenn.dev/yukiyada/articles/7e2c67d8406f0d",
-  },
+  // TODO:  easy job posting pj, review job pj.
   {
     workId: "underwriting",
     title:
@@ -42,6 +31,33 @@ export const Works: WorkType[] = [
     serviceUrl: "https://app.propmtx.com/",
   },
   {
+    workId: "news-recommendation-llm",
+    title:
+      "News Recommendation with Category Description by a Large Language Model",
+    category: "Research",
+    description: [
+      "Personalized news recommendations are essential for online news platforms to assist users in discovering news articles that match their interests from a vast amount of online content. Appropriately encoded content features, such as text, categories, and images, are essential for recommendations.",
+      "Among these features, news categories, such as tv-golden-globe, finance-real-estate, and news-politics, play an important role in understanding news content, inspiring us to enhance the categories’ descriptions. In this paper, we propose a novel method that automatically generates informative category descriptions using a large language model (LLM) without manual effort or domain-specific knowledge and incorporates them into recommendation models as additional information.  ",
+      "In our comprehensive experimental evaluations using the MIND dataset, our method successfully achieved 5.8% improvement at most in AUC compared with baseline approaches without the LLM’s generated category descriptions for the state-of-the-art content-based recommendation models including NAML, NRMS, and NPA.",
+    ],
+    thesisUrl: "https://arxiv.org/pdf/2405.13007",
+    githubUrl: "https://github.com/yamanalab/gpt-augmented-news-recommendation",
+  },
+  {
+    workId: "search-engine-omochi",
+    title: "Omochi: Full text search engine from scratch in Golang",
+    category: "Development",
+    description: [
+      "Omochi is a full-text search engine built using Go programming language. It implements various features including morphological analysis for separating documents into words, ranking documents using TfIdf, compression and decompression of inverted indexes and posting lists, and document indexing, all from scratch using Go.",
+      "Omochi adopts a layered architecture design for its application. MySQL is used for storing inverted indexes and documents, while Meta's ent is used for object-relational mapping.",
+      "It supports two languages, Japanese and English, allowing for registration and search of any document.",
+      "Omochi's source code is publicly available on Github and has garnered more than 70 stars as of April 2023.",
+    ],
+    githubUrl: "https://github.com/YadaYuki/Omochi",
+    thesisUrl: "https://zenn.dev/yukiyada/articles/7e2c67d8406f0d",
+  },
+
+  {
     workId: "velox-label-pfn",
     title:
       "VeloxLabel: An Efficient Annotation Tool for Object Recognition (Semantic Segmentation) Using Active Learning Techniques.",
@@ -54,22 +70,26 @@ export const Works: WorkType[] = [
     thesisUrl:
       "https://tech.preferred.jp/ja/blog/efficient-annotation-tool-using-active-learning/",
   },
+
   {
-    workId: "news-recommendation-llm",
-    title: "News Recommendation by LLM",
+    workId: "dark-patterns-in-e-commerce",
+    title:
+      "Dark Patterns in e-commerce: a dataset and its base line evaluation",
     category: "Research",
     description: [
-      "Implementation of a News Recommendation system utilizing Pretrained Large Language Models named PLM-NR(NRMS-BERT) using Python and PyTorch. We employed BERT-base and DistilBERT-base as the underlying language models, and utilized the Microsoft-originated MIND dataset for model training and evaluation.",
-      "Our trained models achieved impressive performance on validation data, closely aligning with the results reported in the PLM-NR research paper. We have also made our pretrained models publicly available for further research and applications.",
+      "Dark patterns, which are user interface designs in online services, induce users to take unintended actions. Recently, dark patterns have been raised as an issue of privacy and fairness.",
+      "In this work, we constructed a dataset for dark pattern detection and prepared its baseline detection performance with state-of-the-art machine learning methods. The original dataset was obtained from Mathur et al.'s study in 2019, which consists of 1,818 dark pattern texts from shopping sites. Then, we added negative samples, i.e., non-dark pattern texts, by retrieving texts from the same websites as Mathur et al.'s dataset.",
+      "We also applied state-of-the-art machine learning methods to show the automatic detection accuracy as baselines, including BERT, RoBERTa, ALBERT, and XLNet. As a result of 5-fold cross-validation, we achieved the highest accuracy of 0.975 with RoBERTa. We published the dataset and baseline source codes on Github.",
+      "This research work has been published in IEEE BigData 2022.",
     ],
-    thesisUrl: "https://zenn.dev/yukiyada/articles/d028faf7217ec8",
-    githubUrl: "https://github.com/YadaYuki/news-recommendation-llm",
+    githubUrl: "https://github.com/yamanalab/ec-darkpattern",
+    thesisUrl: "https://arxiv.org/abs/2211.06543",
   },
   {
     workId: "nand2tetris-golang",
     title:
       "Nand2tetris in Golang: Building a Modern Computer & Programming Language from First Principles",
-    category: "OSS",
+    category: "Development",
     description: [
       "Nand2tetris is a unique project that allows you to build a complete computer system from scratch, starting with nothing but a Nand gate.",
       "By following the step-by-step instructions provided in the project, you will be able to create your own computer hardware, design a programming language, and write software programs to run on your custom-built computer.",
@@ -82,7 +102,7 @@ export const Works: WorkType[] = [
     workId: "neural-net-typescript",
     title:
       "Neural Network by Typescript: Very Simple Neural Network Implementation By Typescript.",
-    category: "OSS",
+    category: "Development",
     description: [
       "This project is a simple implementation of Convolutional Neural Networks (CNNs) and Deep Neural Networks (DNNs) using TypeScript.",
       "The implementation is built from scratch and is heavily inspired by the book 'Deep Learning from Scratch'. ",
@@ -93,9 +113,24 @@ export const Works: WorkType[] = [
     thesisUrl: "https://zenn.dev/yukiyada/articles/053722ddadd18a",
   },
   {
+    workId: "transformer-from-scratch-pytorch",
+    title:
+      "Transformer from scratch: English to Japanese translator by Pytorch.",
+    category: "Development",
+    description: [
+      "Transformer is one of deep learning model that exhibits high performance in natural language processing tasks such as translation, document generation, and question answering.",
+      "This is a project that involves building an English to Japanese translator using PyTorch, with the neural network architecture based on the Transformer model. ",
+      "The implementation of the layers for the Transformer model (e.g. ScaledDotProductAttention, PositionalEncoding... etc) is done from scratch using Python/PyTorch.",
+      "The dataset used for training is a parallel corpus called kftt.",
+    ],
+    githubUrl:
+      "https://github.com/YadaYuki/en_ja_translator_pytorch/stargazers",
+    thesisUrl: "https://zenn.dev/yukiyada/articles/59f3b820c52571",
+  },
+  {
     workId: "neural-net-golang",
     title: "Deep Learning by Golang",
-    category: "OSS",
+    category: "Development",
     description: [
       "This project is a simple implementation of Deep Neural Networks (DNNs) using Golang. ",
       "The implementation is built from scratch and is heavily inspired by the book 'Deep Learning from Scratch'.",
@@ -113,21 +148,7 @@ export const Works: WorkType[] = [
     description: ["My Blog Site by Astro"],
     serviceUrl: "",
   },
-  {
-    workId: "transformer-from-scratch-pytorch",
-    title:
-      "Transformer from scratch: English to Japanese translator by Pytorch.",
-    category: "OSS",
-    description: [
-      "Transformer is one of deep learning model that exhibits high performance in natural language processing tasks such as translation, document generation, and question answering.",
-      "This is a project that involves building an English to Japanese translator using PyTorch, with the neural network architecture based on the Transformer model. ",
-      "The implementation of the layers for the Transformer model (e.g. ScaledDotProductAttention, PositionalEncoding... etc) is done from scratch using Python/PyTorch.",
-      "The dataset used for training is a parallel corpus called kftt.",
-    ],
-    githubUrl:
-      "https://github.com/YadaYuki/en_ja_translator_pytorch/stargazers",
-    thesisUrl: "https://zenn.dev/yukiyada/articles/59f3b820c52571",
-  },
+
   {
     workId: "study-app-effectivest",
     title: "Effectivest: study app that maximizes learning efficiency",
