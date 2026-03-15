@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "generate-thumbs": "node scripts/generate-thumbnails.mjs",
     "test": "vitest run"
   },
   "dependencies": {
@@ -23,11 +24,11 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "satori": "^0.4.14",
-    "sharp": "0.31.3",
+    "sharp": "0.34.5",
     "twemoji-parser": "^14.0.0"
   },
   "devDependencies": {
-    "@types/sharp": "^0.31.1",
+    "@types/sharp": "^0.32.0",
     "@types/twemoji-parser": "^13.1.4",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
@@ -40,6 +41,11 @@
     "prettier-plugin-astro": "^0.8.1",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^0.29.8"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp"
+    ]
   },
   "volta": {
     "node": "18.12.1",

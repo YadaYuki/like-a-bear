@@ -15,23 +15,23 @@ const GRID_STYLE = {
 } as const;
 
 export const WorkList = ({ workList }: Props) => {
-  const [isAllImagesLoaded, setAllImagesLoaded] = useState(false);
+  const [isThumbsLoaded, setThumbsLoaded] = useState(false);
 
   useEffect(() => {
     const promises = workList.map((work) => {
       return new Promise<void>((resolve) => {
         const img = new Image();
-        img.src = `/works/${work.workId}.png`;
+        img.src = `/works/thumbs/${work.workId}.webp`;
         img.onload = () => resolve();
         img.onerror = () => resolve();
       });
     });
     Promise.all(promises).then(() => {
-      setAllImagesLoaded(true);
+      setThumbsLoaded(true);
     });
   }, [workList]);
 
-  if (!isAllImagesLoaded) {
+  if (!isThumbsLoaded) {
     return <div>Loading...</div>;
   }
   return (
@@ -50,6 +50,7 @@ type WorkItemProps = {
 const WorkItem = ({ work }: WorkItemProps) => {
   const contentRef = useRef<HTMLDivElement>(null);
   const itemRef = useRef<HTMLDivElement>(null);
+  const [isFullLoaded, setFullLoaded] = useState(false);
 
   const recalcRowSpan = useCallback(() => {
     if (!contentRef.current || !itemRef.current) return;
@@ -67,6 +68,9 @@ const WorkItem = ({ work }: WorkItemProps) => {
     };
   }, [recalcRowSpan]);
 
+  const fullSrc = `/works/${work.workId}.png`;
+  const thumbSrc = `/works/thumbs/${work.workId}.webp`;
+
   return (
     <div ref={itemRef}>
       <a href={`/works/${work.workId}`}>
@@ -74,8 +78,24 @@ const WorkItem = ({ work }: WorkItemProps) => {
           <img
             alt={work.title}
             width="100%"
-            src={`/works/${work.workId}.png`}
+            src={thumbSrc}
+            className={styles.thumb_img}
             onLoad={recalcRowSpan}
+            style={{ display: isFullLoaded ? "none" : "block" }}
+          />
+          <img
+            alt={work.title}
+            width="100%"
+            src={fullSrc}
+            onLoad={() => {
+              // TODO: テスト用遅延。本番では削除すること
+              const delay = 1000 + Math.random() * 2000;
+              setTimeout(() => {
+                setFullLoaded(true);
+                recalcRowSpan();
+              }, delay);
+            }}
+            style={{ display: isFullLoaded ? "block" : "none" }}
           />
           <p
             style={{ background: WORK_CATEGORY_TO_COLOR_CODE[work.category] }}

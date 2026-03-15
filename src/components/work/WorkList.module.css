@@ -22,3 +22,8 @@
 .item_content > img {
   border-radius: 16px;
 }
+
+.thumb_img {
+  filter: blur(8px);
+  transform: scale(1.05);
+}
