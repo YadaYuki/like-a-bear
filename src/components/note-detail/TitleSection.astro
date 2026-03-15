@@ -1,6 +1,5 @@
 ---
 import type { NoteType } from "~/schemas/note";
-import { Image } from "@astrojs/image/components";
 import CategoryTag from "~/components/common/CategoryTag.astro";
 import PubDate from "~/components/common/PubDate.astro";
 import { convertEmojiStrToTwiImage } from "~/utils/string";
@@ -18,12 +17,11 @@ const categoryTagBackgroundColor =
 
 <div class="section_wrapper">
   <div class="image_wrapper">
-    <Image
+    <img
       src={emojiEntity.url}
       alt={emojiEntity.text}
       width={80}
       height={80}
-      format={"svg"}
       class="emoji"
     />
   </div>

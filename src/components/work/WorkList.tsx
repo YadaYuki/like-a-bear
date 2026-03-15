@@ -88,12 +88,8 @@ const WorkItem = ({ work }: WorkItemProps) => {
             width="100%"
             src={fullSrc}
             onLoad={() => {
-              // TODO: テスト用遅延。本番では削除すること
-              const delay = 1000 + Math.random() * 2000;
-              setTimeout(() => {
-                setFullLoaded(true);
-                recalcRowSpan();
-              }, delay);
+              setFullLoaded(true);
+              recalcRowSpan();
             }}
             style={{ display: isFullLoaded ? "block" : "none" }}
           />

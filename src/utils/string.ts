@@ -1,4 +1,6 @@
-import { EmojiEntity, parse } from "twemoji-parser";
+import pkg from "twemoji-parser";
+const { parse } = pkg;
+type EmojiEntity = ReturnType<typeof parse>[number];
 
 export const capitalize = (s: string): string => {
   return s.charAt(0).toUpperCase() + s.slice(1, s.length);

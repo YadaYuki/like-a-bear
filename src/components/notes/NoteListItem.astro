@@ -3,7 +3,7 @@ import type { NoteType } from "~/schemas/note";
 import { capitalize, convertEmojiStrToTwiImage } from "~/utils/string";
 import { renderDate } from "~/utils/date";
 import { NOTE_CATEGORY_TO_COLOR_CODE } from "~/consts/color";
-import { Image } from "@astrojs/image/components";
+
 
 type Props = {
   noteItem: NoteType;
@@ -24,12 +24,11 @@ const link =
 <a href={link} target={noteItem.externalLink && "_blank"}>
   <div class="list_item_wrapper">
     <div class="img_area">
-      <Image
+      <img
         src={emojiEntity.url}
         width={40}
         height={40}
         alt={emojiEntity.text}
-        format={"svg"}
       />
     </div>
     <div class="note_info_area">
