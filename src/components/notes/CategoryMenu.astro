@@ -1,9 +1,10 @@
 ---
 import type { NoteCategoryType } from "~/schemas/note";
 import { NOTE_CATEGORIES } from "~/consts/categories";
+import { Image } from "astro:assets";
 import menuItemBgImage from "~/assets/image/category_menu_bg.png";
 import { capitalize } from "~/utils/string";
-import { Image } from "@astrojs/image/components";
+
 
 type NoteMenuType = NoteCategoryType | "all";
 
@@ -34,7 +35,6 @@ const { activeCategory = "all" } = Astro.props;
               width={80}
               height={80}
               src={menuItemBgImage}
-              format={"png"}
             />
             <div class="list_item">
               <a href={CATEGORY_TO_PATH_MAP[category]}>

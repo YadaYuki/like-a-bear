@@ -2,7 +2,7 @@ import type { APIRoute, APIContext } from "astro";
 import { generateSvgFromComponent } from "~/domain/ogp/generateOgpImage";
 import { getCollection } from "astro:content";
 
-export const get: APIRoute = async ({ props }: APIContext) => {
+export const GET: APIRoute = async ({ props }: APIContext) => {
   const res = await generateSvgFromComponent(props.note.title);
   return new Response(res, {
     status: 200,

@@ -1,7 +1,7 @@
 ---
 import type { NoteType } from "~/schemas/note";
 import { convertEmojiStrToTwiImage } from "~/utils/string";
-import { Image } from "@astrojs/image/components";
+
 import CategoryTag from "~/components/common/CategoryTag.astro";
 import PubDate from "~/components/common/PubDate.astro";
 
@@ -21,12 +21,11 @@ const link =
 <div class="related_note_item">
   <a href={link} target={relatedNote.externalLink && "_blank"}>
     <div class="img_area">
-      <Image
+      <img
         src={emojiEntity.url}
         width={40}
         height={40}
         alt={emojiEntity.text}
-        format={"svg"}
       />
     </div>
     <div class="note_info_area">

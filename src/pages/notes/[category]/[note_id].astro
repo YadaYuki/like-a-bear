@@ -5,7 +5,7 @@ import RelatedNoteList from "~/components/note-detail/RelatedNoteList.astro";
 import TwitterShareButton from "~/components/note-detail/TwitterShareButton.astro";
 import { constructTwitterShareURL } from "~/utils/string";
 import { sortNoteListByPubDate } from "~/utils/collection";
-import { getCollection, CollectionEntry } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 import { ExternalNotes } from "~/data/externalNotes";
 import { ContentBasedRecommender } from "~/domain/recommend/ContentBasedRecommender";
 import { TfIdfDocumentVectorizer } from "~/domain/recommend/documentVectorizer/TfIdfDocumentVectorizer";
@@ -53,13 +53,13 @@ export async function getStaticPaths() {
     });
 
     return {
-      params: { note_id: note.slug, category: note.data.category },
+      params: { note_id: note.id, category: note.data.category },
       props: { note, relatedNoteItems },
     };
   });
 }
 const { note, relatedNoteItems } = Astro.props;
-const { Content } = await note.render();
+const { Content } = await render(note);
 const { noteId, title, description } = note.data;
 const ogImgUrl = `/ogp/${noteId}.png`;
 const url = Astro.url.toString();

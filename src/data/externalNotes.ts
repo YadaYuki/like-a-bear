@@ -1,4 +1,4 @@
-import { Notes, NoteType } from "~/schemas/note";
+import { Notes, type NoteType } from "~/schemas/note";
 
 const CompanyTechBlog: NoteType[] = [
   {

@@ -5,7 +5,7 @@ import { SITE_URL } from "~/consts/url";
 import { sortNoteListByPubDate } from "~/utils/collection";
 import { ExternalNotes } from "~/data/externalNotes";
 
-export async function get(context) {
+export async function GET(context) {
   const collections = await getCollection("notes");
   const internalNotes = collections.map((collection) => collection.data);
   const noteItems = sortNoteListByPubDate([...internalNotes, ...ExternalNotes]);

@@ -1,5 +1,5 @@
 import styles from "./MenuList.module.css";
-import { PageType, PAGES_TO_LABEL_MAP } from "~/consts/page";
+import { type PageType, PAGES_TO_LABEL_MAP } from "~/consts/page";
 import { PORTFOLIO_URL, CONTACT_URL } from "~/consts/url";
 import * as React from "react";
 

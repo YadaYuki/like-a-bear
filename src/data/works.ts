@@ -1,4 +1,4 @@
-import { WorkType, Works as WorksValidator } from "~/schemas/work";
+import { type WorkType, Works as WorksValidator } from "~/schemas/work";
 
 export const Works: WorkType[] = [
 
